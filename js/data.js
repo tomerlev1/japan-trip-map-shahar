@@ -634,7 +634,7 @@ DAYS.push(
   {"id":"t2","nights":3,"ln":"קראבי","n":18,"c":"TH","short":"קראבי ב׳","city":"קראבי","color":"#0f766e","title":"Banyan Tree קראבי","sum":"מעבר לבניאן טרי — בריכה, ספא ושקיעות. רעיונות להמשך: שייט 4 איים, לגונת האמרלד, ריילי ביץ'.","hotel":"hotel-banyan","stops":["hotel-banyan"]},
   {"id":"t3","nights":5,"ln":"קופנגן","n":19,"c":"TH","short":"קופנגן","city":"קופנגן","color":"#15803d","title":"Panviman קופנגן","sum":"טיסה קצרה לסמוי, מעבורת לקופנגן — 5 לילות בפנווימאן שמעל מפרץ תונג נאי פאן.","hotel":"hotel-panviman","transit":"PG266 בשעה 14:00 (50 דק') ← נמל בנגרק ← מעבורת לקופנגן.","stops":["flight-kbv-usm","ferry-samui-phangan","hotel-panviman"]},
   {"id":"t4","nights":7,"ln":"קוסמוי","n":20,"c":"TH","short":"קוסמוי","city":"קוסמוי","color":"#b45309","title":"Hansar קוסמוי","sum":"שבוע בהאנסר על חוף בופוט — שווקי לילה, Fisherman's Village והמון בריכה.","hotel":"hotel-hansar","transit":"מעבורת קופנגן ← סמוי ~45 דק', ומשם נסיעה קצרה לבופוט.","stops":["ferry-phangan-samui","hotel-hansar"]},
-  {"id":"t5","nights":1,"ln":"בנגקוק","n":21,"c":"TH","short":"בנגקוק","city":"בנגקוק","color":"#6d28d9","title":"בנגקוק — וטיסה הביתה","sum":"טיסה מסמוי לבנגקוק והמשך לישראל ב-12.10 — לוודא שעות בכרטיס.","hotel":null,"stops":["flight-usm-bkk","bkk-airport"]}
+  {"id":"t5","nights":2,"ln":"בנגקוק","n":21,"c":"TH","short":"בנגקוק","city":"בנגקוק","color":"#6d28d9","title":"בנגקוק — וטיסה הביתה","sum":"נחיתה בבנגקוק, יומיים אחרונים — וב-13.10 הטיסה הביתה.","hotel":null,"stops":["flight-usm-bkk","bkk-airport"]}
 );
 
 /* מלונות — לתצוגת כרטיס היום */
@@ -968,31 +968,11 @@ const JA = {
 
 /* הטיסות — לתצוגה בפאנל המידע */
 const FLIGHTS = [
- {
-  "r": "תל אביב ← טוקיו",
-  "d": "המראה 06.09 בלילה · נחיתה 08.09 בבוקר",
-  "note": "לוודא שעות וקונקשן בכרטיס"
- },
- {
-  "r": "טוקיו ← קראבי",
-  "d": "24.09",
-  "note": "טרם הוזמן — לתאם"
- },
- {
-  "r": "קראבי ← קוסמוי",
-  "d": "29.09",
-  "note": "טרם הוזמן · ומשם מעבורת לקופנגן"
- },
- {
-  "r": "קוסמוי ← בנגקוק",
-  "d": "11.10",
-  "note": "טרם הוזמן"
- },
- {
-  "r": "בנגקוק ← תל אביב",
-  "d": "12.10",
-  "note": "לוודא בכרטיס"
- }
+ { "r": "תל אביב ← טוקיו (הנדה)", "d": "המראה 06.09 בלילה · נחיתה 08.09 בבוקר", "note": "לוודא שעות וקונקשן בכרטיס" },
+ { "r": "טוקיו ← קראבי", "d": "24.09", "note": "לוודא כרטיס" },
+ { "r": "קראבי ← קוסמוי", "d": "29.09", "note": "ומשם מעבורת לקופנגן" },
+ { "r": "קוסמוי ← בנגקוק", "d": "11.10", "note": "לוודא כרטיס" },
+ { "r": "בנגקוק ← תל אביב", "d": "13.10", "note": "לוודא שעת המראה בכרטיס" }
 ];
 
 /* קישורים מהירים */
@@ -1113,7 +1093,15 @@ const SEGMENTS = [
 /* ---------- 🗓 תאריכים דינמיים ----------
    כל התאריכים (ימים, יעדים, מלונות, כותרות) נגזרים מ-TRIP.start ומ-nights של ימי-הטווח.
    כדי להזיז את כל הטיול — משנים רק את TRIP.start (ו-flyDate); ערכי date/dow/label/sub שכתובים למעלה נדרסים. */
-(function deriveDates() {
+function applyTripDates(ov) {
+  ov = ov || {};
+  if (TRIP._baseStart === undefined) {
+    TRIP._baseStart = TRIP.start; TRIP._baseFly = TRIP.flyDate;
+    for (const d of DAYS) if (d.nights) d._baseNights = d.nights;
+  }
+  TRIP.start = ov.start || TRIP._baseStart;
+  TRIP.flyDate = ov.flyDate || TRIP._baseFly;
+  for (const d of DAYS) if (d._baseNights) d.nights = (ov.nights && ov.nights[d.id]) || d._baseNights;
   const DOW = ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי", "שבת"];
   const pad = n => String(n).padStart(2, "0");
   const fmt = d => pad(d.getDate()) + "." + pad(d.getMonth() + 1);
@@ -1159,4 +1147,5 @@ const SEGMENTS = [
   TRIP.sub = TRIP.fullRange + " · " + TRIP.route;
   const iso = d => d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
   TRIP.endISO = iso(DAYS[DAYS.length - 1]._e);
-})();
+}
+applyTripDates();
