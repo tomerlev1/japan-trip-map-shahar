@@ -1,5 +1,5 @@
 /* Service Worker — מצב אופליין. הגרסה חייבת לעלות בכל דיפלוי (tools/bump.mjs) */
-const V = "8";
+const V = "9";
 const SHELL = "jtms-shell-" + V;
 const TILES = "jtm-tiles-v1";
 const ASSETS = [
