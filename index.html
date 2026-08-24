@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>יפן 2026 · המפה של שחר</title>
-<meta name="description" content="מפת המסלול היומי של הטיול ליפן — 08–24 בספטמבר 2026">
+<title>יפן–תאילנד 2026 · המפה של שחר</title>
+<meta name="description" content="מפת המסלול היומי — יפן ותאילנד, 08.09–12.10.2026">
 <meta name="theme-color" content="#f7f6f3">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="המפה שלנו">
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗾</text></svg>">
-<link rel="stylesheet" href="vendor/leaflet/leaflet.css?v=1">
-<link rel="stylesheet" href="vendor/maplibre/maplibre-gl.css?v=1">
-<link rel="stylesheet" href="css/style.css?v=1">
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css?v=2">
+<link rel="stylesheet" href="vendor/maplibre/maplibre-gl.css?v=2">
+<link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
 <header id="top">
   <div class="brand">
     <span class="logo">🗾</span>
-    <div><h1>יפן 2026 · המפה של שחר</h1><span class="tag">08–24.09 · 🇯🇵 טוקיו → קיוטו → אוסקה → האקונה</span></div>
+    <div><h1>יפן–תאילנד 2026 · המפה שלנו</h1><span class="tag">10.09–13.10 · יפן 🇯🇵 ← תאילנד 🇹🇭</span></div>
   </div>
   <div class="tools">
     <button id="btnUndo" class="tb" title="ביטול פעולה אחרונה (Ctrl+Z)">↩️</button>
@@ -47,7 +47,7 @@
   <div class="m-head"><h2 id="catTitle"></h2><button class="x" data-close="catModal">✕</button></div>
   <div class="m-filter">
     <input id="catSearch" type="search" placeholder="חיפוש מקום, מסעדה, אטרקציה…">
-    <select id="catCity"><option>הכל</option><option>טוקיו</option><option>קיוטו</option><option>אוסקה</option><option>נארה</option><option>האקונה</option></select>
+    <select id="catCity"><option>הכל</option><option>טוקיו</option><option>קיוטו</option><option>אוסקה</option><option>נארה</option><option>האקונה</option><option>קראבי</option><option>קופנגן</option><option>קוסמוי</option><option>בנגקוק</option></select>
     <select id="catCat"><option value="הכל">הכל</option><option value="site">⛩️ אתרים</option><option value="food">🍜 אוכל</option><option value="shop">🛍️ קניות</option><option value="exp">✨ חוויות</option></select>
   </div>
   <div id="catList" class="m-body"></div>
@@ -61,7 +61,7 @@
     <label>שם באנגלית — לניווט מדויק <input id="edEn" placeholder="Sushi Kenshin Ebisu"></label>
     <label>כתובת מדויקת (אופציונלי) — הסיכה והניווט יכוונו בדיוק אליה <input id="edAddr" placeholder="למשל: 1-2-3 Ginza, Chuo City, Tokyo או 東京都中央区銀座1-2-3"></label>
     <div class="row2">
-      <label>עיר <select id="edCity"><option>טוקיו</option><option>קיוטו</option><option>אוסקה</option><option>נארה</option><option>האקונה</option></select></label>
+      <label>עיר <select id="edCity"><option>טוקיו</option><option>קיוטו</option><option>אוסקה</option><option>נארה</option><option>האקונה</option><option>קראבי</option><option>קופנגן</option><option>קוסמוי</option><option>בנגקוק</option></select></label>
       <label>סוג <select id="edCat"><option value="site">⛩️ אתר</option><option value="food">🍜 אוכל</option><option value="shop">🛍️ קניות</option><option value="exp">✨ חוויה</option><option value="transit">🚄 תחבורה</option><option value="hotel">🏨 לינה</option></select></label>
     </div>
     <div class="row2">
@@ -128,13 +128,13 @@
 </div>
 <input type="file" id="importFile" accept="application/json" hidden>
 
-<script src="vendor/leaflet/leaflet.js?v=1"></script>
-<script src="vendor/maplibre/maplibre-gl.js?v=1"></script>
-<script src="vendor/maplibre/leaflet-maplibre-gl.js?v=1"></script>
-<script src="js/config.js?v=1"></script>
-<script src="js/data.js?v=1"></script>
-<script src="js/storage.js?v=1"></script>
-<script src="js/sync.js?v=1"></script>
-<script src="js/app.js?v=1"></script>
+<script src="vendor/leaflet/leaflet.js?v=2"></script>
+<script src="vendor/maplibre/maplibre-gl.js?v=2"></script>
+<script src="vendor/maplibre/leaflet-maplibre-gl.js?v=2"></script>
+<script src="js/config.js?v=2"></script>
+<script src="js/data.js?v=2"></script>
+<script src="js/storage.js?v=2"></script>
+<script src="js/sync.js?v=2"></script>
+<script src="js/app.js?v=2"></script>
 </body>
 </html>

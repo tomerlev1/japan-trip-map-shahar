@@ -7,8 +7,11 @@
 "use strict";
 
 const TRIP = {
- "title": "יפן 2026 · המפה של שחר",
- "sub": "08–24.09 · 🇯🇵 טוקיו → קיוטו → אוסקה → נארה → האקונה → טוקיו",
+ "title": "יפן–תאילנד 2026 · המפה של שחר",
+ "start": "2026-09-08",
+ "flyDate": "2026-09-06",
+ "route": "🇯🇵 טוקיו → קיוטו → אוסקה → נארה → האקונה → 🇹🇭 קראבי → קופנגן → קוסמוי → בנגקוק",
+ "sub": "",
  "version": 1,
  "klookCode": "OMERINJAPAN"
 };
@@ -314,7 +317,7 @@ const PLACES = {
     d: "סושי אומקסה ברמה גבוהה — ארוחת הסיום.", book: "להזמין מראש — OMAKASE.IN" },
   "akihabara": { n: "אקיהברה (אופציונלי)", en: "Akihabara Electric Town", city: "טוקיו", cat: "shop", part: "לילה",
     d: "אנימה, אלקטרוניקה וארקיידים (פתוחים עד ~23:00); Don Quijote 24/7. אפשר גם לשבץ ביום 13." },
-  "airport-dep": { n: "טיסה הביתה ✈️", en: "Haneda Airport", city: "טוקיו", cat: "transit", approx: true,
+  "airport-dep": { n: "טיסה לתאילנד ✈️", en: "Haneda Airport", city: "טוקיו", cat: "transit", approx: true,
     d: "26.09 — טיסה טוקיו ← קראבי. לוודא בכרטיס: הנדה או נריטה, ולתזמן יציאה בהתאם." },
 };
 
@@ -323,8 +326,6 @@ const DAYS = [
  {
   "id": "d0",
   "n": 0,
-  "date": "08.09",
-  "dow": "שלישי",
   "city": "טוקיו",
   "color": "#64748b",
   "title": "נחיתה בטוקיו",
@@ -339,8 +340,6 @@ const DAYS = [
  {
   "id": "d1",
   "n": 1,
-  "date": "09.09",
-  "dow": "רביעי",
   "city": "טוקיו",
   "color": "#e11d48",
   "title": "הרג'וקו ושיבויה",
@@ -360,8 +359,6 @@ const DAYS = [
  {
   "id": "d2",
   "n": 2,
-  "date": "10.09",
-  "dow": "חמישי",
   "city": "טוקיו",
   "color": "#ea580c",
   "title": "אסאקוסה, אואנו וסקיי-טרי",
@@ -379,20 +376,17 @@ const DAYS = [
  {
   "id": "dfree",
   "n": 3,
-  "date": "11.09",
-  "dow": "שישי",
+  "c": "JP",
   "city": "טוקיו",
   "color": "#0ea5e9",
   "title": "יום חופשי בטוקיו",
-  "sum": "היום שהיה שמור לדיסני נשאר פתוח — שכונות, קניות או אטרקציה מהקטלוג. מוסיפים עצירות בכפתור למטה, והבוקר מוסרים מזוודות לקיוטו.",
+  "sum": "היום שהיה שמור לדיסני נשאר פתוח — שכונות, קניות או אטרקציה מהקטלוג. בבוקר מוסרים מזוודות לקיוטו.",
   "hotel": "hotel-shiodome",
   "stops": []
  },
  {
   "id": "d3",
   "n": 4,
-  "date": "12.09",
-  "dow": "שבת",
   "city": "קיוטו",
   "color": "#ca8a04",
   "title": "שינקנסן לקיוטו",
@@ -412,8 +406,6 @@ const DAYS = [
  {
   "id": "d4",
   "n": 5,
-  "date": "13.09",
-  "dow": "ראשון",
   "city": "קיוטו",
   "color": "#65a30d",
   "title": "אראשיאמה ומקדש הזהב",
@@ -432,8 +424,6 @@ const DAYS = [
  {
   "id": "d5",
   "n": 6,
-  "date": "14.09",
-  "dow": "שני",
   "city": "קיוטו",
   "color": "#059669",
   "title": "קיומיזו, נישיקי וטקס תה",
@@ -450,8 +440,6 @@ const DAYS = [
  {
   "id": "d6",
   "n": 7,
-  "date": "15.09",
-  "dow": "שלישי",
   "city": "קיוטו",
   "color": "#0d9488",
   "title": "פושימי אינארי וטים-לאב",
@@ -469,8 +457,6 @@ const DAYS = [
  {
   "id": "d7",
   "n": 8,
-  "date": "16.09",
-  "dow": "רביעי",
   "city": "אוסקה",
   "color": "#0891b2",
   "title": "מעבר לאוסקה",
@@ -488,8 +474,6 @@ const DAYS = [
  {
   "id": "d8",
   "n": 9,
-  "date": "17.09",
-  "dow": "חמישי",
   "city": "אוסקה",
   "color": "#2563eb",
   "title": "טירת אוסקה ודוטונבורי",
@@ -506,8 +490,6 @@ const DAYS = [
  {
   "id": "d9",
   "n": 10,
-  "date": "18.09",
-  "dow": "שישי",
   "city": "אוסקה",
   "color": "#4f46e5",
   "title": "יוניברסל סטודיוס",
@@ -520,8 +502,6 @@ const DAYS = [
  {
   "id": "d10",
   "n": 11,
-  "date": "19.09",
-  "dow": "שבת",
   "city": "נארה",
   "color": "#7c3aed",
   "title": "יום איילים בנארה",
@@ -540,8 +520,6 @@ const DAYS = [
  {
   "id": "d11",
   "n": 12,
-  "date": "20.09",
-  "dow": "ראשון",
   "city": "האקונה",
   "color": "#9333ea",
   "title": "להאקונה — אמנות ואונסן",
@@ -559,8 +537,6 @@ const DAYS = [
  {
   "id": "d12",
   "n": 13,
-  "date": "21.09",
-  "dow": "שני",
   "city": "האקונה",
   "color": "#c026d3",
   "title": "לולאת האקונה",
@@ -575,8 +551,6 @@ const DAYS = [
  {
   "id": "d13",
   "n": 14,
-  "date": "22.09",
-  "dow": "שלישי",
   "city": "טוקיו",
   "color": "#db2777",
   "title": "רופונגי, טים-לאב ומגדל טוקיו",
@@ -594,8 +568,6 @@ const DAYS = [
  {
   "id": "d14",
   "n": 15,
-  "date": "23.09",
-  "dow": "רביעי",
   "city": "טוקיו",
   "color": "#dc2626",
   "title": "שימוקיטזאווה ושינג'וקו",
@@ -617,12 +589,11 @@ const DAYS = [
  {
   "id": "d16",
   "n": 16,
-  "date": "24.09",
-  "dow": "חמישי",
   "city": "טוקיו",
   "color": "#475569",
-  "title": "טיסה הביתה",
-  "sum": "צ'ק-אאוט וטיסה טוקיו ← תל אביב. להגיע לשדה 3 שעות לפני.",
+  "overlap": true,
+  "title": "טיסה לתאילנד",
+  "sum": "צ'ק-אאוט וטיסה טוקיו ← קראבי. להגיע לשדה 3 שעות לפני.",
   "hotel": null,
   "stops": [
    "airport-dep"
@@ -658,23 +629,46 @@ Object.assign(PLACES, {
     d: "כנראה אחרי 13.10 — התאריך המדויק לא מופיע בקבלות. לוודא בכרטיס האלקטרוני (הזמנה 63900)." },
 });
 
+DAYS.push(
+  {"id":"t1","nights":2,"ln":"קראבי","n":17,"c":"TH","short":"קראבי א׳","city":"קראבי","color":"#0284c7","title":"נחיתה בקראבי — The Tubkaak","sum":"נחיתה מטוקיו וצ'ק-אין בטובקק. חוף, בריכה והתאוששות מהקצב של יפן. אטרקציות יתווספו בהמשך.","hotel":"hotel-tubkaak","transit":"משדה התעופה של קראבי ~40 דק' נסיעה למלון — לתאם הסעה מראש.","stops":["arr-kbv","hotel-tubkaak"]},
+  {"id":"t2","nights":3,"ln":"קראבי","n":18,"c":"TH","short":"קראבי ב׳","city":"קראבי","color":"#0f766e","title":"Banyan Tree קראבי","sum":"מעבר לבניאן טרי — בריכה, ספא ושקיעות. רעיונות להמשך: שייט 4 איים, לגונת האמרלד, ריילי ביץ'.","hotel":"hotel-banyan","stops":["hotel-banyan"]},
+  {"id":"t3","nights":5,"ln":"קופנגן","n":19,"c":"TH","short":"קופנגן","city":"קופנגן","color":"#15803d","title":"Panviman קופנגן","sum":"טיסה קצרה לסמוי, מעבורת לקופנגן — 5 לילות בפנווימאן שמעל מפרץ תונג נאי פאן.","hotel":"hotel-panviman","transit":"PG266 בשעה 14:00 (50 דק') ← נמל בנגרק ← מעבורת לקופנגן.","stops":["flight-kbv-usm","ferry-samui-phangan","hotel-panviman"]},
+  {"id":"t4","nights":7,"ln":"קוסמוי","n":20,"c":"TH","short":"קוסמוי","city":"קוסמוי","color":"#b45309","title":"Hansar קוסמוי","sum":"שבוע בהאנסר על חוף בופוט — שווקי לילה, Fisherman's Village והמון בריכה.","hotel":"hotel-hansar","transit":"מעבורת קופנגן ← סמוי ~45 דק', ומשם נסיעה קצרה לבופוט.","stops":["ferry-phangan-samui","hotel-hansar"]},
+  {"id":"t5","nights":1,"ln":"בנגקוק","n":21,"c":"TH","short":"בנגקוק","city":"בנגקוק","color":"#6d28d9","title":"בנגקוק — וטיסה הביתה","sum":"טיסה מסמוי לבנגקוק והמשך לישראל ב-12.10 — לוודא שעות בכרטיס.","hotel":null,"stops":["flight-usm-bkk","bkk-airport"]}
+);
 
 /* מלונות — לתצוגת כרטיס היום */
 const HOTELS = {
  "hotel-shiodome": {
-  "nights": "08–12.09 + 22–24.09",
+  "nights": "",
   "booked": false
  },
  "hotel-nohga": {
-  "nights": "12–16.09",
+  "nights": "",
   "booked": false
  },
  "hotel-flag": {
-  "nights": "16–20.09",
+  "nights": "",
   "booked": false
  },
  "hotel-suiun": {
-  "nights": "20–22.09 (2 לילות)",
+  "nights": "",
+  "booked": false
+ },
+ "hotel-tubkaak": {
+  "nights": "",
+  "booked": false
+ },
+ "hotel-banyan": {
+  "nights": "",
+  "booked": false
+ },
+ "hotel-panviman": {
+  "nights": "",
+  "booked": false
+ },
+ "hotel-hansar": {
+  "nights": "",
   "booked": false
  }
 };
@@ -696,1459 +690,151 @@ const CITY_CENTERS = {
 };
 
 const CATALOG = [
- {
-  "n": "מופע סומו",
-  "en": "Sumo Show Tokyo",
-  "city": "טוקיו",
-  "cat": "exp",
-  "klook": "https://shorturl.at/Y6Imk",
-  "k": "culture",
-  "ll": [
-   35.69727,
-   139.79324
-  ],
-  "addr": "28, Yokoami, Sumida"
- },
- {
-  "n": "קרטינג ברחובות טוקיו",
-  "en": "Street Karting Tokyo",
-  "city": "טוקיו",
-  "cat": "exp",
-  "klook": "https://shorturl.at/ZVclF",
-  "note": "דרוש רישיון נהיגה בינלאומי!",
-  "k": "bar"
- },
- {
-  "n": "פארק הארי פוטר (Warner Bros)",
-  "en": "Warner Bros Studio Tour Tokyo Harry Potter",
-  "city": "טוקיו",
-  "cat": "exp",
-  "klook": "https://shorturl.at/jgbe9",
-  "k": "culture",
-  "ll": [
-   35.74562,
-   139.64575
-  ],
-  "addr": "リバーゲート, Kasugacho, Nerima"
- },
- {
-  "n": "Shibuya Sky — תצפית גגות",
-  "en": "Shibuya Sky",
-  "city": "טוקיו",
-  "cat": "site",
-  "klook": "https://shorturl.at/pg7D6",
-  "k": "culture",
-  "ll": [
-   35.65829,
-   139.70226
-  ],
-  "addr": "B3F, Shibuya"
- },
- {
-  "n": "פארק סנריו (הלו קיטי)",
-  "en": "Sanrio Puroland",
-  "city": "טוקיו",
-  "cat": "exp",
-  "klook": "https://shorturl.at/dnKgP",
-  "k": "culture"
- },
- {
-  "n": "מוזיאון-אקווריום בגינזה",
-  "en": "Art Aquarium Museum Ginza",
-  "city": "טוקיו",
-  "cat": "site",
-  "klook": "https://shorturl.at/4Ql4o",
-  "k": "culture",
-  "ll": [
-   35.67138,
-   139.76571
-  ],
-  "addr": "16, Ginza, Chuo"
- },
- {
-  "n": "טוקיו דיסני-סי (ירד מהמסלול)",
-  "en": "Tokyo DisneySea",
-  "city": "טוקיו",
-  "cat": "exp",
-  "klook": "https://shorturl.at/BFd0u",
-  "note": "אם מתחשק להחזיר — יום שלם, שעה לפני פתיחה",
-  "k": "culture",
-  "ll": [
-   35.62765,
-   139.88865
-  ],
-  "addr": "Maihama, Urayasu"
- },
- {
-  "n": "teamLab אוסקה",
-  "en": "teamLab Botanical Garden Osaka",
-  "city": "אוסקה",
-  "cat": "exp",
-  "klook": "https://shorturl.at/mDUBh",
-  "k": "culture",
-  "ll": [
-   34.61112,
-   135.52056
-  ],
-  "addr": "Nagai-Kouen Avenue, Koenminamiyata 1-chome, Higashisumiyoshi Ward, Osaka"
- },
- {
-  "n": "סיור בעברית בטוקיו (סוזי)",
-  "en": "Tokyo",
-  "city": "טוקיו",
-  "cat": "exp",
-  "note": "קוד OMERINJAPAN — סיור עם סוזי, חיה ביפן 20+ שנה",
-  "k": "culture"
- },
- {
-  "n": "סיור אוכל בעברית באוסקה (לירן)",
-  "en": "Osaka",
-  "city": "אוסקה",
-  "cat": "exp",
-  "note": "קבוצות קטנות עד 8 — אווירה, אלכוהול והיסטוריה",
-  "k": "culture"
- },
- {
-  "n": "Kanazawa Maimon Sushi",
-  "en": "Kanazawa Maimon Sushi Tokyo",
-  "city": "טוקיו",
-  "cat": "food",
-  "note": "סושי מסוע — רשת איכותית",
-  "k": "sushi",
-  "ll": [
-   35.70685,
-   139.77333
-  ],
-  "addr": "Ueno, Taito"
- },
- {
-  "n": "Nemuro Hanamaru Ginza",
-  "en": "Kaitenzushi Nemuro Hanamaru Ginza",
-  "city": "טוקיו",
-  "cat": "food",
-  "note": "סושי מסוע איכותי",
-  "k": "sushi",
-  "ll": [
-   35.67177,
-   139.76219
-  ],
-  "addr": "1, Ginza, Chuo"
- },
- {
-  "n": "Sushi Kenshin (אביסו)",
-  "en": "Sushi Kenshin Ebisu",
-  "city": "טוקיו",
-  "cat": "food",
-  "note": "אומקסה, אפשרי ללא פירות ים — להזמין מראש",
-  "book": true,
-  "k": "other"
- },
- {
-  "n": "Jikasei MENSHO",
-  "en": "Jikasei Mensho Shibuya",
-  "city": "טוקיו",
-  "cat": "food",
-  "note": "ראמן בשיבויה",
-  "k": "ramen",
-  "ll": [
-   35.662,
-   139.69889
-  ],
-  "addr": "1, Udagawachō, Shibuya"
- },
- {
-  "n": "Ramen Break Beats",
-  "en": "Ramen Break Beats Meguro",
-  "city": "טוקיו",
-  "cat": "food",
-  "note": "ראמן",
-  "k": "ramen",
-  "ll": [
-   35.63353,
-   139.69876
-  ],
-  "addr": "Aburadzura-dori, Meguro"
- },
- {
-  "n": "Afuri",
-  "en": "Afuri Ramen Ebisu",
-  "city": "טוקיו",
-  "cat": "food",
-  "note": "ראמן יוזו — רשת מומלצת 🌱",
-  "k": "ramen"
- },
- {
-  "n": "Bills Ginza",
-  "en": "Bills Ginza",
-  "city": "טוקיו",
-  "cat": "food",
-  "note": "ארוחת בוקר",
-  "k": "sweets",
-  "ll": [
-   35.67328,
-   139.76658
-  ],
-  "addr": "Ginza Gasutou-dori Street, Ginza, Chuo"
- },
- {
-  "n": "Blue Bottle Coffee",
-  "en": "Blue Bottle Coffee Tokyo",
-  "city": "טוקיו",
-  "cat": "food",
-  "note": "רשת קפה",
-  "k": "sweets",
-  "ll": [
-   35.68893,
-   139.70209
-  ],
-  "addr": "6, Shinjuku"
- },
- {
-  "n": "A Happy Pancake",
-  "en": "A Happy Pancake Omotesando",
-  "city": "טוקיו",
-  "cat": "food",
-  "note": "פנקייק פלאפי",
-  "k": "sweets"
- },
- {
-  "n": "Flipper's שיבויה",
-  "en": "Flippers Shibuya",
-  "city": "טוקיו",
-  "cat": "food",
-  "note": "פנקייק פלאפי",
-  "k": "sweets"
- },
- {
-  "n": "Micasadeco & Cafe",
-  "en": "Micasadeco Cafe Jingumae",
-  "city": "טוקיו",
-  "cat": "food",
-  "note": "פנקייק פלאפי",
-  "k": "sweets",
-  "ll": [
-   35.66541,
-   139.7039
-  ],
-  "addr": "Cat Street, Jingumae, Shibuya"
- },
- {
-  "n": "BAM BI COFFEE",
-  "en": "Bam Bi Coffee Tokyo",
-  "city": "טוקיו",
-  "cat": "food",
-  "note": "פנקייק + קפה מעולה",
-  "k": "sweets"
- },
- {
-  "n": "Verve Coffee Roasters",
-  "en": "Verve Coffee Roasters Shinjuku",
-  "city": "טוקיו",
-  "cat": "food",
-  "note": "בית קפה",
-  "k": "sweets",
-  "ll": [
-   35.68841,
-   139.70146
-  ],
-  "addr": "55, Sendagaya, Shibuya"
- },
- {
-  "n": "Nikuya no Daidokoro",
-  "en": "Nikuya no Daidokoro Shinjuku",
-  "city": "טוקיו",
-  "cat": "food",
-  "note": "יאקיניקו",
-  "k": "meat"
- },
- {
-  "n": "Han no Daidokoro Bettei",
-  "en": "Han no Daidokoro Bettei Shibuya",
-  "city": "טוקיו",
-  "cat": "food",
-  "note": "יאקיניקו",
-  "k": "meat",
-  "ll": [
-   35.6597,
-   139.69781
-  ],
-  "addr": "道玄坂小路, Dōgenzaka, Shibuya"
- },
- {
-  "n": "WAGYU NIKUTARASHI",
-  "en": "Wagyu Yakiniku Nikutarashi Tokyo",
-  "city": "טוקיו",
-  "cat": "food",
-  "note": "יאקיניקו",
-  "k": "meat"
- },
- {
-  "n": "Jambo Hanare",
-  "en": "Jambo Hanare Tokyo",
-  "city": "טוקיו",
-  "cat": "food",
-  "note": "יאקיניקו",
-  "k": "meat"
- },
- {
-  "n": "GINZA STEAK",
-  "en": "Ginza Steak Chuo",
-  "city": "טוקיו",
-  "cat": "food",
-  "note": "טפניאקי",
-  "k": "meat"
- },
- {
-  "n": "Teppanyaki Akasaka",
-  "en": "Teppanyaki Akasaka Tokyo",
-  "city": "טוקיו",
-  "cat": "food",
-  "note": "טפניאקי",
-  "k": "meat"
- },
- {
-  "n": "NOBU Tokyo",
-  "en": "Nobu Tokyo",
-  "city": "טוקיו",
-  "cat": "food",
-  "note": "מערבית-יפנית — להזמין מראש",
-  "book": true,
-  "k": "michelin",
-  "ll": [
-   35.66632,
-   139.74378
-  ],
-  "addr": "Edomisaka, Toranomon, Minato"
- },
- {
-  "n": "PST Roppongi",
-  "en": "Pizza Studio Tamaki Roppongi",
-  "city": "טוקיו",
-  "cat": "food",
-  "note": "פיצה",
-  "k": "other"
- },
- {
-  "n": "pizza marumo",
-  "en": "Pizza Marumo Ebisu",
-  "city": "טוקיו",
-  "cat": "food",
-  "note": "פיצה",
-  "k": "other",
-  "ll": [
-   35.64529,
-   139.70851
-  ],
-  "addr": "Meguro Mita Street, Ebisu-Minami, Shibuya"
- },
- {
-  "n": "Tír na nÓg",
-  "en": "Tir na nOg Bar Tokyo",
-  "city": "טוקיו",
-  "cat": "exp",
-  "note": "בר קוקטיילים",
-  "k": "bar"
- },
- {
-  "n": "Bar TRENCH",
-  "en": "Bar Trench Ebisu",
-  "city": "טוקיו",
-  "cat": "exp",
-  "note": "בר קוקטיילים",
-  "k": "bar",
-  "ll": [
-   35.64842,
-   139.70792
-  ],
-  "addr": "Ebisu 1st Street, Ebisu-Nishi, Shibuya"
- },
- {
-  "n": "THE MUSIC BAR CAVE",
-  "en": "The Music Bar Cave Shibuya",
-  "city": "טוקיו",
-  "cat": "exp",
-  "note": "בר רטרו",
-  "k": "bar"
- },
- {
-  "n": "A10 (בר סודי)",
-  "en": "A10 Bar Shibuya",
-  "city": "טוקיו",
-  "cat": "exp",
-  "note": "בר קוקטיילים סודי",
-  "k": "bar"
- },
- {
-  "n": "Crony (מישלן)",
-  "en": "Crony Nishiazabu",
-  "city": "טוקיו",
-  "cat": "food",
-  "note": "צרפתית מישלן — להזמין מראש",
-  "book": true,
-  "k": "michelin",
-  "mich": true
- },
- {
-  "n": "SÉZANNE (מישלן)",
-  "en": "Sezanne Tokyo",
-  "city": "טוקיו",
-  "cat": "food",
-  "note": "צרפתית מישלן — להזמין מראש",
-  "book": true,
-  "k": "michelin",
-  "mich": true,
-  "ll": [
-   35.6787,
-   139.7645
-  ]
- },
- {
-  "n": "MAZ (מישלן)",
-  "en": "MAZ Tokyo",
-  "city": "טוקיו",
-  "cat": "food",
-  "note": "פרואנית מישלן — להזמין מראש",
-  "book": true,
-  "k": "michelin",
-  "mich": true
- },
- {
-  "n": "Kabi (מישלן)",
-  "en": "Kabi Meguro",
-  "city": "טוקיו",
-  "cat": "food",
-  "note": "יפנית מודרנית — להזמין מראש",
-  "book": true,
-  "k": "michelin",
-  "mich": true
- },
- {
-  "n": "Sushi Ishimatsu",
-  "en": "Sushi Ishimatsu Kyoto",
-  "city": "קיוטו",
-  "cat": "food",
-  "note": "סושי",
-  "k": "sushi"
- },
- {
-  "n": "MoriMori Sushi",
-  "en": "Morimori Sushi Shijo Kawaramachi",
-  "city": "קיוטו",
-  "cat": "food",
-  "note": "סושי מסוע",
-  "k": "sushi",
-  "ll": [
-   35.00341,
-   135.76967
-  ],
-  "addr": "Kawaramachi Street, Junpucho, Shimogyo Ward, Kyoto"
- },
- {
-  "n": "Sushi Kizaemon",
-  "en": "Sushi Kizaemon Kyoto",
-  "city": "קיוטו",
-  "cat": "food",
-  "note": "סושי",
-  "k": "sushi"
- },
- {
-  "n": "Maruman",
-  "en": "Maruman Sushi Kyoto",
-  "city": "קיוטו",
-  "cat": "food",
-  "note": "סושי",
-  "k": "sushi"
- },
- {
-  "n": "KYOTO ENGINE RAMEN",
-  "en": "Kyoto Engine Ramen",
-  "city": "קיוטו",
-  "cat": "food",
-  "note": "ראמן — אופציות צמחוניות 🌱",
-  "k": "ramen"
- },
- {
-  "n": "Sugari",
-  "en": "Sugari Ramen Kyoto",
-  "city": "קיוטו",
-  "cat": "food",
-  "note": "ראמן",
-  "k": "ramen"
- },
- {
-  "n": "Vegan Ramen UZU",
-  "en": "Vegan Ramen Uzu Kyoto",
-  "city": "קיוטו",
-  "cat": "food",
-  "note": "ראמן טבעוני 🌱",
-  "k": "ramen",
-  "ll": [
-   35.01467,
-   135.76804
-  ],
-  "addr": "新烏丸通, Gyoganjimonzencho, Nakagyo Ward, Kyoto"
- },
- {
-  "n": "Sabanji",
-  "en": "Sabanji Ramen Kyoto",
-  "city": "קיוטו",
-  "cat": "food",
-  "note": "ראמן בשרי",
-  "k": "ramen"
- },
- {
-  "n": "Panel Cafe",
-  "en": "Panel Cafe Kyoto",
-  "city": "קיוטו",
-  "cat": "food",
-  "note": "פנקייק פלאפי",
-  "k": "sweets"
- },
- {
-  "n": "Maccha House",
-  "en": "Maccha House Kyoto",
-  "city": "קיוטו",
-  "cat": "food",
-  "note": "מאצ'ה",
-  "k": "sweets",
-  "ll": [
-   35.00449,
-   135.76948
-  ],
-  "addr": "Kawaramachi Street, Komeyacho, Nakagyo Ward, Kyoto"
- },
- {
-  "n": ".common",
-  "en": "common cafe Kyoto",
-  "city": "קיוטו",
-  "cat": "food",
-  "note": "בית קפה",
-  "k": "sweets"
- },
- {
-  "n": "Blue Bottle קיוטו",
-  "en": "Blue Bottle Coffee Kyoto",
-  "city": "קיוטו",
-  "cat": "food",
-  "note": "רשת קפה",
-  "k": "sweets",
-  "ll": [
-   35.01139,
-   135.78949
-  ],
-  "addr": "64, Nanzenji-Kusagawacho, Sakyō Ward, Kyoto"
- },
- {
-  "n": "ACTUAL KYOTO",
-  "en": "Actual Kyoto cafe",
-  "city": "קיוטו",
-  "cat": "food",
-  "note": "בית קפה",
-  "k": "sweets"
- },
- {
-  "n": "Gyūrakutei",
-  "en": "Yakiniku Gyurakutei Kyoto",
-  "city": "קיוטו",
-  "cat": "food",
-  "note": "יאקיניקו",
-  "k": "meat",
-  "ll": [
-   35.00385,
-   135.75677
-  ],
-  "addr": "Shinmachi Street, Mikagecho, Shimogyo Ward, Kyoto"
- },
- {
-  "n": "Hikiniku to Kome",
-  "en": "Hikiniku to Come Kyoto",
-  "city": "קיוטו",
-  "cat": "food",
-  "note": "קציצות וואגיו ואורז",
-  "k": "meat",
-  "ll": [
-   35.0051,
-   135.77454
-  ],
-  "addr": "末吉町通, Kiyomotocho, Higashiyama Ward, Kyoto"
- },
- {
-  "n": "Burger Revolution",
-  "en": "Burger Revolution Kyoto",
-  "city": "קיוטו",
-  "cat": "food",
-  "note": "המבורגר וואגיו",
-  "k": "meat"
- },
- {
-  "n": "Itoh Dining",
-  "en": "Itoh Dining Kyoto Gion",
-  "city": "קיוטו",
-  "cat": "food",
-  "note": "סטייקים — יוקרתית",
-  "k": "meat",
-  "ll": [
-   35.00518,
-   135.77399
-  ],
-  "addr": "80, 末吉町通, Sueyoshicho, Higashiyama Ward"
- },
- {
-  "n": "MOTOI Gyoza",
-  "en": "Motoi Gyoza Kyoto",
-  "city": "קיוטו",
-  "cat": "food",
-  "note": "גיוזה מישלן",
-  "k": "other",
-  "mich": true
- },
- {
-  "n": "koisus — קארי וטמפורה",
-  "en": "Curry Tempura Koisus Kyoto",
-  "city": "קיוטו",
-  "cat": "food",
-  "note": "קארי וטמפורה",
-  "k": "other",
-  "ll": [
-   35.00026,
-   135.77116
-  ],
-  "addr": "Kawabata Street, Sujakucho, Higashiyama Ward, Kyoto"
- },
- {
-  "n": "Pizzeria Marita",
-  "en": "Pizzeria Marita Kyoto",
-  "city": "קיוטו",
-  "cat": "food",
-  "note": "פיצה",
-  "k": "other"
- },
- {
-  "n": "Bigoli",
-  "en": "Bigoli Kyoto",
-  "city": "קיוטו",
-  "cat": "food",
-  "note": "פסטה",
-  "k": "other",
-  "ll": [
-   35.00443,
-   135.7608
-  ],
-  "addr": "Higashinotōin Street, Misayamacho, Nakagyo Ward, Kyoto"
- },
- {
-  "n": "Chao Chao Gyoza",
-  "en": "Chao Chao Gyoza Shijo Kawaramachi",
-  "city": "קיוטו",
-  "cat": "food",
-  "note": "גיוזה",
-  "k": "other",
-  "ll": [
-   35.00284,
-   135.76952
-  ],
-  "addr": "Kawaramachi Street, Matsukawacho, Shimogyo Ward, Kyoto"
- },
- {
-  "n": "music bar Beatle momo",
-  "en": "Music Bar Beatle Momo Kyoto",
-  "city": "קיוטו",
-  "cat": "exp",
-  "note": "בר רטרו",
-  "k": "bar"
- },
- {
-  "n": "Masuya Saketen",
-  "en": "Masuya Saketen Kyoto",
-  "city": "קיוטו",
-  "cat": "exp",
-  "note": "בר סאקה",
-  "k": "bar",
-  "ll": [
-   35.00418,
-   135.76641
-  ],
-  "addr": "Gokomachi Street, Dainichicho, Nakagyo Ward, Kyoto"
- },
- {
-  "n": "mixology bar Smooth",
-  "en": "Mixology Bar Smooth Kyoto",
-  "city": "קיוטו",
-  "cat": "exp",
-  "note": "בר קוקטיילים",
-  "k": "bar"
- },
- {
-  "n": "Hyotei (3 כוכבי מישלן)",
-  "en": "Hyotei Kyoto",
-  "city": "קיוטו",
-  "cat": "food",
-  "note": "קייסקי ~450 שנה — להזמין מראש",
-  "book": true,
-  "k": "michelin",
-  "mich": true,
-  "ll": [
-   35.01142,
-   135.78673
-  ],
-  "addr": "Niō Gate Street, Nanzenji-Kusagawacho, Sakyō Ward, Kyoto"
- },
- {
-  "n": "Tenjaku (מישלן)",
-  "en": "Tenjaku Tempura Kyoto",
-  "city": "קיוטו",
-  "cat": "food",
-  "note": "טמפורה עונתית — להזמין מראש",
-  "book": true,
-  "k": "other",
-  "mich": true
- },
- {
-  "n": "Kikunoi Honten (3 כוכבים)",
-  "en": "Kikunoi Honten Kyoto",
-  "city": "קיוטו",
-  "cat": "food",
-  "note": "קייסקי — להזמין מראש",
-  "book": true,
-  "k": "michelin",
-  "mich": true,
-  "ll": [
-   34.9993,
-   135.7808
-  ]
- },
- {
-  "n": "Kōdaiji Jūgyūan (2 כוכבים)",
-  "en": "Kodaiji Jugyuan Kyoto",
-  "city": "קיוטו",
-  "cat": "food",
-  "note": "קייסקי — להזמין מראש",
-  "book": true,
-  "k": "michelin",
-  "mich": true,
-  "ll": [
-   35.0003,
-   135.7806
-  ],
-  "addr": "Daidokoro Slope, Shimogawara-chō, Higashiyama Ward, Kyoto"
- },
- {
-  "n": "Sushi Sakaba Sashisu",
-  "en": "Sushi Sakaba Sashisu Osaka",
-  "city": "אוסקה",
-  "cat": "food",
-  "note": "סושי",
-  "k": "sushi"
- },
- {
-  "n": "Daiki-suisan דוטונבורי",
-  "en": "Daiki Suisan Kaitenzushi Dotonbori",
-  "city": "אוסקה",
-  "cat": "food",
-  "note": "סושי מסוע",
-  "k": "sushi",
-  "ll": [
-   34.66853,
-   135.50291
-  ],
-  "addr": "24, Dotonbori 1, Chūō Ward, Osaka"
- },
- {
-  "n": "Sushi Hayata",
-  "en": "Sushi Hayata Osaka",
-  "city": "אוסקה",
-  "cat": "food",
-  "note": "סושי",
-  "k": "sushi"
- },
- {
-  "n": "Sanshin — אומקסה",
-  "en": "Sushi Sanshin Osaka",
-  "city": "אוסקה",
-  "cat": "food",
-  "note": "אומקסה — להזמין מראש",
-  "book": true,
-  "k": "other"
- },
- {
-  "n": "Ichiran נמבה",
-  "en": "Ichiran Namba Midosuji",
-  "city": "אוסקה",
-  "cat": "food",
-  "note": "ראמן — ללא חזיר",
-  "k": "ramen"
- },
- {
-  "n": "OSAKA ENGINE RAMEN",
-  "en": "Osaka Engine Ramen",
-  "city": "אוסקה",
-  "cat": "food",
-  "note": "ראמן",
-  "k": "ramen"
- },
- {
-  "n": "Kyushu Ramen Kio",
-  "en": "Kyushu Ramen Kio Dotonbori",
-  "city": "אוסקה",
-  "cat": "food",
-  "note": "ראמן אותנטי",
-  "k": "ramen",
-  "ll": [
-   34.66458,
-   135.50362
-  ],
-  "addr": "Sennichimae Doguyasuji Shopping St, Nanba-Sennichimae, Chūō Ward, Osaka"
- },
- {
-  "n": "Mugito Mensuke",
-  "en": "Mugito Mensuke Osaka",
-  "city": "אוסקה",
-  "cat": "food",
-  "note": "ראמן מומלץ מישלן",
-  "k": "ramen",
-  "mich": true,
-  "ll": [
-   34.71133,
-   135.49999
-  ]
- },
- {
-  "n": "Ourlog coffee",
-  "en": "Ourlog Coffee Osaka",
-  "city": "אוסקה",
-  "cat": "food",
-  "note": "קפה ומאפה",
-  "k": "sweets",
-  "ll": [
-   34.66074,
-   135.53601
-  ],
-  "addr": "御幸通商店街, Momodani 3-chome, Ikuno Ward, Osaka"
- },
- {
-  "n": "Brooklyn Roasting Co.",
-  "en": "Brooklyn Roasting Company Kitahama",
-  "city": "אוסקה",
-  "cat": "food",
-  "note": "קפה ומאפה",
-  "k": "sweets",
-  "ll": [
-   34.69101,
-   135.50919
-  ],
-  "addr": "Tosabori Street, Kitahama 1-chome, Chūō Ward, Osaka"
- },
- {
-  "n": "GLITCH COFFEE",
-  "en": "Glitch Coffee Osaka",
-  "city": "אוסקה",
-  "cat": "food",
-  "note": "קפה ספשלטי",
-  "k": "sweets",
-  "ll": [
-   34.69366,
-   135.49553
-  ],
-  "addr": "4, Nakanoshima 3-chome, Kita Ward, Osaka"
- },
- {
-  "n": "CAFE TALES",
-  "en": "Cafe Tales Osaka",
-  "city": "אוסקה",
-  "cat": "food",
-  "note": "ארוחת בוקר",
-  "k": "sweets",
-  "ll": [
-   34.68103,
-   135.50364
-  ],
-  "addr": "Sankyubashi-suji, Kyutaromachi 2-chome, Chūō Ward, Osaka"
- },
- {
-  "n": "Wagyu Teppanyaki OUSAKA",
-  "en": "Wagyu Teppanyaki Ousaka",
-  "city": "אוסקה",
-  "cat": "food",
-  "note": "טפניאקי יוקרתי — להזמין מראש",
-  "book": true,
-  "k": "meat"
- },
- {
-  "n": "Matsusakagyu M Hanare",
-  "en": "Matsusakagyu Yakiniku M Hanare Namba",
-  "city": "אוסקה",
-  "cat": "food",
-  "note": "יאקיניקו",
-  "k": "meat"
- },
- {
-  "n": "KITAN HIBIKI",
-  "en": "Kitan Hibiki Yakiniku Steak Osaka",
-  "city": "אוסקה",
-  "cat": "food",
-  "note": "וואגיו / סטייק",
-  "k": "meat"
- },
- {
-  "n": "La Pizza Regalo",
-  "en": "La Pizza Napoletana Regalo Osaka",
-  "city": "אוסקה",
-  "cat": "food",
-  "note": "איטלקית",
-  "k": "other"
- },
- {
-  "n": "Tempura Makino",
-  "en": "Tempura Makino Namba",
-  "city": "אוסקה",
-  "cat": "food",
-  "note": "טמפורה",
-  "k": "other",
-  "ll": [
-   34.70607,
-   135.51122
-  ],
-  "addr": "18, Tenjinbashi 4-chome, Kita Ward, Osaka"
- },
- {
-  "n": "Yakitori Ichimatsu",
-  "en": "Yakitori Ichimatsu Osaka",
-  "city": "אוסקה",
-  "cat": "food",
-  "note": "יאקיטורי מומלץ מישלן",
-  "k": "meat",
-  "mich": true
- },
- {
-  "n": "Alto Tritone",
-  "en": "Alto Tritone Osaka",
-  "city": "אוסקה",
-  "cat": "food",
-  "note": "איטלקית קטנה",
-  "k": "other"
- },
- {
-  "n": "Osteria La Cicerchia",
-  "en": "Osteria La Cicerchia Osaka",
-  "city": "אוסקה",
-  "cat": "food",
-  "note": "איטלקית מומלצת מישלן",
-  "k": "other",
-  "mich": true
- },
- {
-  "n": "BAR Inc",
-  "en": "Bar Inc Osaka",
-  "city": "אוסקה",
-  "cat": "exp",
-  "note": "בר קוקטיילים",
-  "k": "bar"
- },
- {
-  "n": "Bar Nayuta",
-  "en": "Bar Nayuta Osaka",
-  "city": "אוסקה",
-  "cat": "exp",
-  "note": "בר קוקטיילים",
-  "k": "bar",
-  "ll": [
-   34.67204,
-   135.49835
-  ],
-  "addr": "大黒橋筋, Nishi-Shinsaibashi 1-chome, Chūō Ward, Osaka"
- },
- {
-  "n": "Bar N",
-  "en": "Bar N Osaka",
-  "city": "אוסקה",
-  "cat": "exp",
-  "note": "בר משפחתי",
-  "k": "bar"
- },
- {
-  "n": "Akashic Records",
-  "en": "Osaka Cocktail Library Akashic Records",
-  "city": "אוסקה",
-  "cat": "exp",
-  "note": "בר קוקטיילים",
-  "k": "bar"
- },
- {
-  "n": "La Cime (2 כוכבים)",
-  "en": "La Cime Osaka",
-  "city": "אוסקה",
-  "cat": "food",
-  "note": "צרפתית-יפנית — להזמין מראש",
-  "book": true,
-  "k": "michelin",
-  "mich": true
- },
- {
-  "n": "HAJIME (3 כוכבים)",
-  "en": "Hajime Osaka",
-  "city": "אוסקה",
-  "cat": "food",
-  "note": "גסטרונומיה — להזמין מראש",
-  "book": true,
-  "k": "michelin",
-  "mich": true
- },
- {
-  "n": "Koryu (2 כוכבים)",
-  "en": "Koryu Osaka",
-  "city": "אוסקה",
-  "cat": "food",
-  "note": "קייסקי — להזמין מראש",
-  "book": true,
-  "k": "michelin",
-  "mich": true,
-  "ll": [
-   34.6966,
-   135.4985
-  ]
- },
- {
-  "n": "Tenjimbashi Aoki (2 כוכבים)",
-  "en": "Tenjimbashi Aoki Osaka",
-  "city": "אוסקה",
-  "cat": "food",
-  "note": "קייסקי — מקומות מוגבלים",
-  "book": true,
-  "k": "michelin",
-  "mich": true
- },
- {
-  "n": "מלון-פאן Kagetsudo",
-  "en": "Asakusa Kagetsudo Melonpan",
-  "city": "טוקיו",
-  "cat": "food",
-  "k": "street",
-  "ll": [
-   35.71461,
-   139.79519
-  ],
-  "src": "מוסד באסאקוסה; תורים מ-10:00 — לאכול חם!",
-  "note": "לחמניית מלון ענקית, פריכה בחוץ ורכה בפנים · ליד סנסו-ג'י"
- },
- {
-  "n": "סכינים: Kama-Asa (מ-1908)",
-  "en": "Kama-Asa Shoten Kappabashi",
-  "city": "טוקיו",
-  "cat": "shop",
-  "k": "knives",
-  "ll": [
-   35.7123,
-   139.7887
-  ],
-  "src": "החנות המוערכת בקפבאשי; צוות דובר אנגלית",
-  "note": "חריטת שם חינם · חותמת האומן על הלהב"
- },
- {
-  "n": "סכינים: Kamata Hakensha",
-  "en": "Kamata Hakensha Kappabashi",
-  "city": "טוקיו",
-  "cat": "shop",
-  "k": "knives",
-  "ll": [
-   35.71311,
-   139.78848
-  ],
-  "src": "Time Out; השחזה במקום",
-  "note": "מבחר ענק + הדגמות השחזה"
- },
- {
-  "n": "טמגויאקי Tsukiji Shouro",
-  "en": "Tsukiji Shouro Tamagoyaki",
-  "city": "טוקיו",
-  "cat": "food",
-  "k": "street",
-  "ll": [
-   35.66664,
-   139.77024
-  ],
-  "src": "ספיישליסט חביתות מ-1924; גם Yamacho באותו רחוב",
-  "note": "חביתה יפנית מתוקה על מקל · סנדוויץ' הביצה המפורסם"
- },
- {
-  "n": "קרפ Marion (מ-1976)",
-  "en": "Marion Crepes Takeshita Street",
-  "city": "טוקיו",
-  "cat": "food",
-  "k": "street",
-  "ll": [
-   35.6715,
-   139.7037
-  ],
-  "src": "הקרפ המקורי של הרג'וקו",
-  "note": "עשרות טעמים · הסמל של רחוב טאקשיטה"
- },
- {
-  "n": "Uobei — סושי מסך מגע",
-  "en": "Uobei Sushi Shibuya Dogenzaka",
-  "city": "טוקיו",
-  "cat": "food",
-  "k": "sushi",
-  "ll": [
-   35.6577,
-   139.6987
-  ],
-  "src": "המלצה חוזרת בפורומים הישראליים (למטייל)",
-  "note": "מזמינים במסך והצלחת מגיעה בטיל · זול, טרי וכיף"
- },
- {
-  "n": "וינטג': Flamingo",
-  "en": "Flamingo Shimokitazawa Vintage",
-  "city": "טוקיו",
-  "cat": "shop",
-  "k": "vintage",
-  "ll": [
-   35.6608,
-   139.6676
-  ],
-  "src": "מ-2005; קונים בארה\"ב ומביאים לכאן",
-  "note": "אמריקנה אמצע המאה + כלים ואקססוריז רטרו"
- },
- {
-  "n": "וינטג': Chicago",
-  "en": "Chicago Shimokitazawa Vintage",
-  "city": "טוקיו",
-  "cat": "shop",
-  "k": "vintage",
-  "ll": [
-   35.6614,
-   139.668
-  ],
-  "src": "25+ שנה בשימוקיטה",
-  "note": "רשת הווינטג' הוותיקה · גם קימונו יד-שנייה"
- },
- {
-  "n": "וינטג' ב-800¥: STICK OUT",
-  "en": "Stick Out Vintage Shimokitazawa",
-  "city": "טוקיו",
-  "cat": "shop",
-  "k": "vintage",
-  "ll": [
-   35.6607,
-   139.6685
-  ],
-  "src": "בלוגים; הכול ב-800 ין",
-  "note": "מציאות אמיתיות למי שאוהב לחפור"
- },
- {
-  "n": "Super Potato — משחקי רטרו",
-  "en": "Super Potato Akihabara",
-  "city": "טוקיו",
-  "cat": "shop",
-  "k": "toys",
-  "ll": [
-   35.6996,
-   139.7712
-  ],
-  "src": "מקדש הרטרו-גיימינג; כל משחק נבדק לפני מכירה",
-  "note": "3 קומות של נינטנדו/סגה עתיקים + ארקייד בקומה 5"
- },
- {
-  "n": "סכינים: Aritsugu (מ-1560!)",
-  "en": "Aritsugu Knives Nishiki Market",
-  "city": "קיוטו",
-  "cat": "shop",
-  "k": "knives",
-  "ll": [
-   35.00505,
-   135.7644
-  ],
-  "src": "מחרבות סמוראים לסכיני שף; חריטת שם במקום",
-  "note": "בכניסה לשוק נישיקי · השחזה על אבן מסתובבת מול העיניים"
- },
- {
-  "n": "וורבימוצ'י Gion Komori",
-  "en": "Gion Komori Warabimochi",
-  "city": "קיוטו",
-  "cat": "food",
-  "k": "sweets",
-  "ll": [
-   35.0059,
-   135.7751
-  ],
-  "src": "בית תה על נהר השיראקאווה בגיון",
-  "note": "הוורבימוצ'י הכי רך שיש + פרפה מאצ'ה"
- },
- {
-  "n": "מאצ'ה Sawawa אראשיאמה",
-  "en": "Sawawa Arashiyama Matcha",
-  "city": "קיוטו",
-  "cat": "food",
-  "k": "sweets",
-  "ll": [
-   35.0154,
-   135.6781
-  ],
-  "src": "בלוגי קיוטו; מאצ'ה עשירה במיוחד",
-  "note": "וורבימוצ'י וסופט מאצ'ה ברחוב הראשי של אראשיאמה"
- },
- {
-  "n": "שוק קורומון איצ'יבה",
-  "en": "Kuromon Ichiba Market",
-  "city": "אוסקה",
-  "cat": "food",
-  "k": "market",
-  "ll": [
-   34.66533,
-   135.50698
-  ],
-  "src": "'המטבח של אוסקה'; מומלץ גם בפורומים הישראליים",
-  "note": "שיפודי וואגיו, צדפות בגריל, פירות ים · 5 דק' מדוטונבורי · לבוא רעבים לפני 16:00"
- },
- {
-  "n": "טקויאקי Wanaka",
-  "en": "Takoyaki Wanaka Dotonbori",
-  "city": "אוסקה",
-  "cat": "food",
-  "k": "street",
-  "ll": [
-   34.6688,
-   135.5016
-  ],
-  "src": "מהאהובים על המקומיים; פריך בחוץ נוזלי בפנים",
-  "note": "תור זז מהר · חתיכות תמנון גדולות"
- },
- {
-  "n": "טקויאקי Kukuru",
-  "en": "Takoyaki Kukuru Dotonbori",
-  "city": "אוסקה",
-  "cat": "food",
-  "k": "street",
-  "ll": [
-   34.66875,
-   135.5011
-  ],
-  "src": "המפורסם עם התמנון הסגול על הקיר",
-  "note": "הכי מפורסם בדוטונבורי · קצת יקר יותר, שווה לחוויה"
- },
- {
-  "n": "אוקונומיאקי Mizuno (מ-1945)",
-  "en": "Okonomiyaki Mizuno Dotonbori",
-  "city": "אוסקה",
-  "cat": "food",
-  "k": "other",
-  "ll": [
-   34.66845,
-   135.50307
-  ],
-  "src": "ביב גורמן של מישלן; מוסד דוטונבורי",
-  "note": "אוקונומיאקי על פלנצ'ה מולכם · תור — לבוא מוקדם",
-  "book": true
- },
- {
-  "n": "סכינים: Tower Knives",
-  "en": "Tower Knives Osaka Shinsekai",
-  "city": "אוסקה",
-  "cat": "shop",
-  "k": "knives",
-  "ll": [
-   34.65234,
-   135.5069
-  ],
-  "src": "טריפאדוויזר: 'חנות הסכינים הכי טובה'; אנגלית מלאה",
-  "note": "סכיני סאקאי בעבודת יד · מלמדים אחיזה והשחזה · ליד מגדל טסוטנקאקו, 10 דק' מנמבה"
- },
- {
-  "n": "בית התה Amazake-chaya",
-  "en": "Amazake Chaya Hakone",
-  "city": "האקונה",
-  "cat": "food",
-  "k": "sweets",
-  "ll": [
-   35.20216,
-   139.04895
-  ],
-  "src": "400 שנה על דרך הטוקאידו העתיקה; מתכון שלא השתנה",
-  "note": "אמאזאקה חם (בלי אלכוהול) + מוצ'י על האש · בדרך למקדש האקונה"
- },
- {
-  "n": "Bakery & Table — אגם אשי",
-  "en": "Bakery and Table Hakone Motohakone",
-  "city": "האקונה",
-  "cat": "food",
-  "k": "sweets",
-  "ll": [
-   35.1985,
-   139.029
-  ],
-  "src": "המאפייה המפורסמת של האקונה, על שפת האגם",
-  "note": "Pan de Soft — לחמנייה חמה עם גלידה · מול המזח במוטו-האקונה"
- },
- {
-  "n": "Gora Brewery & Grill",
-  "en": "Gora Brewery and Grill Hakone",
-  "city": "האקונה",
-  "cat": "food",
-  "k": "bar",
-  "ll": [
-   35.2476,
-   139.04634
-  ],
-  "src": "טריפאדוויזר 4.4; בירה מקומית",
-  "note": "מבשלה + גריל בגורה — ערב מושלם אחרי אונסן"
- },
- {
-  "n": "טונה דון Maguroya Kurogin",
-  "en": "Maguroya Kurogin Tsukiji",
-  "city": "טוקיו",
-  "cat": "food",
-  "k": "fish",
-  "ll": [
-   35.66533,
-   139.76986
-  ],
-  "src": "ספיישליסט טונה בצוקיג'י; תור מהבוקר",
-  "note": "קערת דון עם נתחי טונה בכל הדרגות — כולל אוטורו נמס"
- },
- {
-  "n": "דגים על האש: Isomaru Suisan",
-  "en": "Isomaru Suisan Shibuya Center-gai",
-  "city": "טוקיו",
-  "cat": "food",
-  "k": "fish",
-  "ll": [
-   35.6604,
-   139.6987
-  ],
-  "src": "רשת אהובה; פתוח עד מאוחר",
-  "note": "צולים לבד צדפות, סרטן-מיסו ודגים על גריל שולחני · אווירת איזקאיה"
- },
- {
-  "n": "דגים: Uoshin Nogizaka",
-  "en": "Uoshin Nogizaka",
-  "city": "טוקיו",
-  "cat": "food",
-  "k": "fish",
-  "ll": [
-   35.6665,
-   139.7255
-  ],
-  "src": "איזקאיית דגים מבוקשת; ליד רופונגי (יום 13)",
-  "note": "סשימי עשיר, דג צלוי ומנות ים טריות — כדאי להזמין מקום",
-  "book": true
- },
- {
-  "n": "בר BenFiddich",
-  "en": "Bar BenFiddich Shinjuku",
-  "city": "טוקיו",
-  "cat": "exp",
-  "k": "bar",
-  "ll": [
-   35.68949,
-   139.6966
-  ],
-  "src": "מ-50 הברים הטובים בעולם; הברמן מגדל את הצמחים",
-  "note": "קוקטיילים בהתאמה אישית בלי תפריט · שינג'וקו · כדאי להגיע בפתיחה",
-  "book": true
- },
- {
-  "n": "Albatross — גולדן גאי",
-  "en": "Albatross Golden Gai Shinjuku",
-  "city": "טוקיו",
-  "cat": "exp",
-  "k": "bar",
-  "ll": [
-   35.69399,
-   139.7047
-  ],
-  "src": "מהמפורסמים בגולדן גאי; נברשות וקירות אדומים",
-  "note": "בר זעיר על 3 קומות · דמי ישיבה 500¥ · נכנסים בזמן ערב גולדן גאי (יום 14)"
- },
- {
-  "n": "Dover Street Market",
-  "en": "Dover Street Market Ginza",
-  "city": "טוקיו",
-  "cat": "shop",
-  "k": "luxury",
-  "ll": [
-   35.67046,
-   139.76315
-  ],
-  "src": "חנות הקונספט של קום דה גרסון",
-  "note": "7 קומות אוונגרד ומותגי יוקרה — גם רק בשביל העיניים · גינזה (יום 15)"
- },
- {
-  "n": "HANDS שיבויה",
-  "en": "Tokyu Hands Shibuya",
-  "city": "טוקיו",
-  "cat": "shop",
-  "k": "mall",
-  "ll": [
-   35.66201,
-   139.69791
-  ],
-  "src": "מוסד יפני; 8 קומות של דברים שלא ידעתם שצריך",
-  "note": "כלי כתיבה, גאדג'טים, כלי בית ומתנות · שיבויה"
- },
- {
-  "n": "LOFT שיבויה",
-  "en": "Loft Shibuya",
-  "city": "טוקיו",
-  "cat": "shop",
-  "k": "mall",
-  "ll": [
-   35.661,
-   139.69953
-  ],
-  "src": "רשת הלייף-סטייל האהובה",
-  "note": "מכשירי כתיבה יפניים, קוסמטיקה ומתנות · ליד HANDS"
- },
- {
-  "n": "BEAMS הרג'וקו",
-  "en": "Beams Harajuku",
-  "city": "טוקיו",
-  "cat": "shop",
-  "k": "fashion",
-  "ll": [
-   35.67164,
-   139.70835
-  ],
-  "src": "המותג היפני המגדיר סטריטוור",
-  "note": "בלוק שלם של חנויות BEAMS — אופנה יפנית מודרנית · הרג'וקו (יום 1)"
- },
- {
-  "n": "Onitsuka Tiger אומוטסנדו",
-  "en": "Onitsuka Tiger Omotesando",
-  "city": "טוקיו",
-  "cat": "shop",
-  "k": "fashion",
-  "ll": [
-   35.667,
-   139.708
-  ],
-  "src": "הסניקרס היפני האיקוני (מקילל ביל)",
-  "note": "דגמים בלעדיים ליפן שאין בארץ · אומוטסנדו (יום 1)"
- },
- {
-  "n": "Niimi — כלי מטבח (הפינה עם השף)",
-  "en": "Niimi Western Tableware Kappabashi",
-  "city": "טוקיו",
-  "cat": "shop",
-  "k": "utensils",
-  "ll": [
-   35.71054,
-   139.78812
-  ],
-  "src": "חנות הפינה האיקונית של קפבאשי (ראש השף הענק על הגג)",
-  "note": "כלי הגשה, מחבתות וכל ציוד מטבח · תחילת רחוב קפבאשי (יום 2)"
- },
- {
-  "n": "Dengama — קרמיקה יפנית",
-  "en": "Dengama Kappabashi Tableware",
-  "city": "טוקיו",
-  "cat": "shop",
-  "k": "utensils",
-  "ll": [
-   35.713,
-   139.7885
-  ],
-  "src": "בלוגים: המבחר הגדול ביפן של כלי חרס",
-  "note": "קערות ראמן, ספלי תה וצלחות אומנותיות · קפבאשי"
- }
+  /* --- אטרקציות נוספות (Klook, קוד OMERINJAPAN) --- */
+  { n: "מופע סומו", en: "Sumo Show Tokyo", city: "טוקיו", cat: "exp", klook: "https://shorturl.at/Y6Imk" , k: "culture", ll: [35.69727, 139.79324] , addr: "28, Yokoami, Sumida" },
+  { n: "קרטינג ברחובות טוקיו", en: "Street Karting Tokyo", city: "טוקיו", cat: "exp", klook: "https://shorturl.at/ZVclF", note: "דרוש רישיון נהיגה בינלאומי!" , k: "bar" },
+  { n: "פארק הארי פוטר (Warner Bros)", en: "Warner Bros Studio Tour Tokyo Harry Potter", city: "טוקיו", cat: "exp", klook: "https://shorturl.at/jgbe9" , k: "culture", ll: [35.74562, 139.64575] , addr: "リバーゲート, Kasugacho, Nerima" },
+  { n: "Shibuya Sky — תצפית גגות", en: "Shibuya Sky", city: "טוקיו", cat: "site", klook: "https://shorturl.at/pg7D6" , k: "culture", ll: [35.65829, 139.70226] , addr: "B3F, Shibuya" },
+  { n: "פארק סנריו (הלו קיטי)", en: "Sanrio Puroland", city: "טוקיו", cat: "exp", klook: "https://shorturl.at/dnKgP" , k: "culture" },
+  { n: "מוזיאון-אקווריום בגינזה", en: "Art Aquarium Museum Ginza", city: "טוקיו", cat: "site", klook: "https://shorturl.at/4Ql4o" , k: "culture", ll: [35.67138, 139.76571] , addr: "16, Ginza, Chuo" },
+  { n: "טוקיו דיסני-סי (ירד מהמסלול)", en: "Tokyo DisneySea", city: "טוקיו", cat: "exp", klook: "https://shorturl.at/BFd0u", note: "אם מתחשק להחזיר — יום שלם, שעה לפני פתיחה" , k: "culture", ll: [35.62765, 139.88865] , addr: "Maihama, Urayasu" },
+  { n: "teamLab אוסקה", en: "teamLab Botanical Garden Osaka", city: "אוסקה", cat: "exp", klook: "https://shorturl.at/mDUBh" , k: "culture", ll: [34.61112, 135.52056] , addr: "Nagai-Kouen Avenue, Koenminamiyata 1-chome, Higashisumiyoshi Ward, Osaka" },
+  { n: "סיור בעברית בטוקיו (סוזי)", en: "Tokyo", city: "טוקיו", cat: "exp", note: "קוד OMERINJAPAN — סיור עם סוזי, חיה ביפן 20+ שנה" , k: "culture" },
+  { n: "סיור אוכל בעברית באוסקה (לירן)", en: "Osaka", city: "אוסקה", cat: "exp", note: "קבוצות קטנות עד 8 — אווירה, אלכוהול והיסטוריה" , k: "culture" },
+
+  /* --- טוקיו: מסעדות --- */
+  { n: "Kanazawa Maimon Sushi", en: "Kanazawa Maimon Sushi Tokyo", city: "טוקיו", cat: "food", note: "סושי מסוע — רשת איכותית" , k: "sushi", ll: [35.70685, 139.77333] , addr: "Ueno, Taito" },
+  { n: "Nemuro Hanamaru Ginza", en: "Kaitenzushi Nemuro Hanamaru Ginza", city: "טוקיו", cat: "food", note: "סושי מסוע איכותי" , k: "sushi", ll: [35.67177, 139.76219] , addr: "1, Ginza, Chuo" },
+  { n: "Sushi Kenshin (אביסו)", en: "Sushi Kenshin Ebisu", city: "טוקיו", cat: "food", note: "אומקסה, אפשרי ללא פירות ים — להזמין מראש", book: true , k: "other" },
+  { n: "Jikasei MENSHO", en: "Jikasei Mensho Shibuya", city: "טוקיו", cat: "food", note: "ראמן בשיבויה" , k: "ramen", ll: [35.66200, 139.69889] , addr: "1, Udagawachō, Shibuya" },
+  { n: "Ramen Break Beats", en: "Ramen Break Beats Meguro", city: "טוקיו", cat: "food", note: "ראמן" , k: "ramen", ll: [35.63353, 139.69876] , addr: "Aburadzura-dori, Meguro" },
+  { n: "Afuri", en: "Afuri Ramen Ebisu", city: "טוקיו", cat: "food", note: "ראמן יוזו — רשת מומלצת 🌱" , k: "ramen" },
+  { n: "Bills Ginza", en: "Bills Ginza", city: "טוקיו", cat: "food", note: "ארוחת בוקר" , k: "sweets", ll: [35.67328, 139.76658] , addr: "Ginza Gasutou-dori Street, Ginza, Chuo" },
+  { n: "Blue Bottle Coffee", en: "Blue Bottle Coffee Tokyo", city: "טוקיו", cat: "food", note: "רשת קפה" , k: "sweets", ll: [35.68893, 139.70209] , addr: "6, Shinjuku" },
+  { n: "A Happy Pancake", en: "A Happy Pancake Omotesando", city: "טוקיו", cat: "food", note: "פנקייק פלאפי" , k: "sweets" },
+  { n: "Flipper's שיבויה", en: "Flippers Shibuya", city: "טוקיו", cat: "food", note: "פנקייק פלאפי" , k: "sweets" },
+  { n: "Micasadeco & Cafe", en: "Micasadeco Cafe Jingumae", city: "טוקיו", cat: "food", note: "פנקייק פלאפי" , k: "sweets", ll: [35.66541, 139.70390] , addr: "Cat Street, Jingumae, Shibuya" },
+  { n: "BAM BI COFFEE", en: "Bam Bi Coffee Tokyo", city: "טוקיו", cat: "food", note: "פנקייק + קפה מעולה" , k: "sweets" },
+  { n: "Verve Coffee Roasters", en: "Verve Coffee Roasters Shinjuku", city: "טוקיו", cat: "food", note: "בית קפה" , k: "sweets", ll: [35.68841, 139.70146] , addr: "55, Sendagaya, Shibuya" },
+  { n: "Nikuya no Daidokoro", en: "Nikuya no Daidokoro Shinjuku", city: "טוקיו", cat: "food", note: "יאקיניקו" , k: "meat" },
+  { n: "Han no Daidokoro Bettei", en: "Han no Daidokoro Bettei Shibuya", city: "טוקיו", cat: "food", note: "יאקיניקו" , k: "meat", ll: [35.65970, 139.69781] , addr: "道玄坂小路, Dōgenzaka, Shibuya" },
+  { n: "WAGYU NIKUTARASHI", en: "Wagyu Yakiniku Nikutarashi Tokyo", city: "טוקיו", cat: "food", note: "יאקיניקו" , k: "meat" },
+  { n: "Jambo Hanare", en: "Jambo Hanare Tokyo", city: "טוקיו", cat: "food", note: "יאקיניקו" , k: "meat" },
+  { n: "GINZA STEAK", en: "Ginza Steak Chuo", city: "טוקיו", cat: "food", note: "טפניאקי" , k: "meat" },
+  { n: "Teppanyaki Akasaka", en: "Teppanyaki Akasaka Tokyo", city: "טוקיו", cat: "food", note: "טפניאקי" , k: "meat" },
+  { n: "NOBU Tokyo", en: "Nobu Tokyo", city: "טוקיו", cat: "food", note: "מערבית-יפנית — להזמין מראש", book: true , k: "michelin", ll: [35.66632, 139.74378] , addr: "Edomisaka, Toranomon, Minato" },
+  { n: "PST Roppongi", en: "Pizza Studio Tamaki Roppongi", city: "טוקיו", cat: "food", note: "פיצה" , k: "other" },
+  { n: "pizza marumo", en: "Pizza Marumo Ebisu", city: "טוקיו", cat: "food", note: "פיצה" , k: "other", ll: [35.64529, 139.70851] , addr: "Meguro Mita Street, Ebisu-Minami, Shibuya" },
+  { n: "Tír na nÓg", en: "Tir na nOg Bar Tokyo", city: "טוקיו", cat: "exp", note: "בר קוקטיילים" , k: "bar" },
+  { n: "Bar TRENCH", en: "Bar Trench Ebisu", city: "טוקיו", cat: "exp", note: "בר קוקטיילים" , k: "bar", ll: [35.64842, 139.70792] , addr: "Ebisu 1st Street, Ebisu-Nishi, Shibuya" },
+  { n: "THE MUSIC BAR CAVE", en: "The Music Bar Cave Shibuya", city: "טוקיו", cat: "exp", note: "בר רטרו" , k: "bar" },
+  { n: "A10 (בר סודי)", en: "A10 Bar Shibuya", city: "טוקיו", cat: "exp", note: "בר קוקטיילים סודי" , k: "bar" },
+  { n: "Crony (מישלן)", en: "Crony Nishiazabu", city: "טוקיו", cat: "food", note: "צרפתית מישלן — להזמין מראש", book: true , k: "michelin", mich: true },
+  { n: "SÉZANNE (מישלן)", en: "Sezanne Tokyo", city: "טוקיו", cat: "food", note: "צרפתית מישלן — להזמין מראש", book: true , k: "michelin", mich: true, ll: [35.67870, 139.76450] },
+  { n: "MAZ (מישלן)", en: "MAZ Tokyo", city: "טוקיו", cat: "food", note: "פרואנית מישלן — להזמין מראש", book: true , k: "michelin", mich: true },
+  { n: "Kabi (מישלן)", en: "Kabi Meguro", city: "טוקיו", cat: "food", note: "יפנית מודרנית — להזמין מראש", book: true , k: "michelin", mich: true },
+
+  /* --- קיוטו: מסעדות --- */
+  { n: "Sushi Ishimatsu", en: "Sushi Ishimatsu Kyoto", city: "קיוטו", cat: "food", note: "סושי" , k: "sushi" },
+  { n: "MoriMori Sushi", en: "Morimori Sushi Shijo Kawaramachi", city: "קיוטו", cat: "food", note: "סושי מסוע" , k: "sushi", ll: [35.00341, 135.76967] , addr: "Kawaramachi Street, Junpucho, Shimogyo Ward, Kyoto" },
+  { n: "Sushi Kizaemon", en: "Sushi Kizaemon Kyoto", city: "קיוטו", cat: "food", note: "סושי" , k: "sushi" },
+  { n: "Maruman", en: "Maruman Sushi Kyoto", city: "קיוטו", cat: "food", note: "סושי" , k: "sushi" },
+  { n: "KYOTO ENGINE RAMEN", en: "Kyoto Engine Ramen", city: "קיוטו", cat: "food", note: "ראמן — אופציות צמחוניות 🌱" , k: "ramen" },
+  { n: "Sugari", en: "Sugari Ramen Kyoto", city: "קיוטו", cat: "food", note: "ראמן" , k: "ramen" },
+  { n: "Vegan Ramen UZU", en: "Vegan Ramen Uzu Kyoto", city: "קיוטו", cat: "food", note: "ראמן טבעוני 🌱" , k: "ramen", ll: [35.01467, 135.76804] , addr: "新烏丸通, Gyoganjimonzencho, Nakagyo Ward, Kyoto" },
+  { n: "Sabanji", en: "Sabanji Ramen Kyoto", city: "קיוטו", cat: "food", note: "ראמן בשרי" , k: "ramen" },
+  { n: "Panel Cafe", en: "Panel Cafe Kyoto", city: "קיוטו", cat: "food", note: "פנקייק פלאפי" , k: "sweets" },
+  { n: "Maccha House", en: "Maccha House Kyoto", city: "קיוטו", cat: "food", note: "מאצ'ה" , k: "sweets", ll: [35.00449, 135.76948] , addr: "Kawaramachi Street, Komeyacho, Nakagyo Ward, Kyoto" },
+  { n: ".common", en: "common cafe Kyoto", city: "קיוטו", cat: "food", note: "בית קפה" , k: "sweets" },
+  { n: "Blue Bottle קיוטו", en: "Blue Bottle Coffee Kyoto", city: "קיוטו", cat: "food", note: "רשת קפה" , k: "sweets", ll: [35.01139, 135.78949] , addr: "64, Nanzenji-Kusagawacho, Sakyō Ward, Kyoto" },
+  { n: "ACTUAL KYOTO", en: "Actual Kyoto cafe", city: "קיוטו", cat: "food", note: "בית קפה" , k: "sweets" },
+  { n: "Gyūrakutei", en: "Yakiniku Gyurakutei Kyoto", city: "קיוטו", cat: "food", note: "יאקיניקו" , k: "meat", ll: [35.00385, 135.75677] , addr: "Shinmachi Street, Mikagecho, Shimogyo Ward, Kyoto" },
+  { n: "Hikiniku to Kome", en: "Hikiniku to Come Kyoto", city: "קיוטו", cat: "food", note: "קציצות וואגיו ואורז" , k: "meat", ll: [35.00510, 135.77454] , addr: "末吉町通, Kiyomotocho, Higashiyama Ward, Kyoto" },
+  { n: "Burger Revolution", en: "Burger Revolution Kyoto", city: "קיוטו", cat: "food", note: "המבורגר וואגיו" , k: "meat" },
+  { n: "Itoh Dining", en: "Itoh Dining Kyoto Gion", city: "קיוטו", cat: "food", note: "סטייקים — יוקרתית" , k: "meat", ll: [35.00518, 135.77399] , addr: "80, 末吉町通, Sueyoshicho, Higashiyama Ward" },
+  { n: "MOTOI Gyoza", en: "Motoi Gyoza Kyoto", city: "קיוטו", cat: "food", note: "גיוזה מישלן" , k: "other", mich: true },
+  { n: "koisus — קארי וטמפורה", en: "Curry Tempura Koisus Kyoto", city: "קיוטו", cat: "food", note: "קארי וטמפורה" , k: "other", ll: [35.00026, 135.77116] , addr: "Kawabata Street, Sujakucho, Higashiyama Ward, Kyoto" },
+  { n: "Pizzeria Marita", en: "Pizzeria Marita Kyoto", city: "קיוטו", cat: "food", note: "פיצה" , k: "other" },
+  { n: "Bigoli", en: "Bigoli Kyoto", city: "קיוטו", cat: "food", note: "פסטה" , k: "other", ll: [35.00443, 135.76080] , addr: "Higashinotōin Street, Misayamacho, Nakagyo Ward, Kyoto" },
+  { n: "Chao Chao Gyoza", en: "Chao Chao Gyoza Shijo Kawaramachi", city: "קיוטו", cat: "food", note: "גיוזה" , k: "other", ll: [35.00284, 135.76952] , addr: "Kawaramachi Street, Matsukawacho, Shimogyo Ward, Kyoto" },
+  { n: "music bar Beatle momo", en: "Music Bar Beatle Momo Kyoto", city: "קיוטו", cat: "exp", note: "בר רטרו" , k: "bar" },
+  { n: "Masuya Saketen", en: "Masuya Saketen Kyoto", city: "קיוטו", cat: "exp", note: "בר סאקה" , k: "bar", ll: [35.00418, 135.76641] , addr: "Gokomachi Street, Dainichicho, Nakagyo Ward, Kyoto" },
+  { n: "mixology bar Smooth", en: "Mixology Bar Smooth Kyoto", city: "קיוטו", cat: "exp", note: "בר קוקטיילים" , k: "bar" },
+  { n: "Hyotei (3 כוכבי מישלן)", en: "Hyotei Kyoto", city: "קיוטו", cat: "food", note: "קייסקי ~450 שנה — להזמין מראש", book: true , k: "michelin", mich: true, ll: [35.01142, 135.78673] , addr: "Niō Gate Street, Nanzenji-Kusagawacho, Sakyō Ward, Kyoto" },
+  { n: "Tenjaku (מישלן)", en: "Tenjaku Tempura Kyoto", city: "קיוטו", cat: "food", note: "טמפורה עונתית — להזמין מראש", book: true , k: "other", mich: true },
+  { n: "Kikunoi Honten (3 כוכבים)", en: "Kikunoi Honten Kyoto", city: "קיוטו", cat: "food", note: "קייסקי — להזמין מראש", book: true , k: "michelin", mich: true, ll: [34.99930, 135.78080] },
+  { n: "Kōdaiji Jūgyūan (2 כוכבים)", en: "Kodaiji Jugyuan Kyoto", city: "קיוטו", cat: "food", note: "קייסקי — להזמין מראש", book: true , k: "michelin", mich: true, ll: [35.00030, 135.78060] , addr: "Daidokoro Slope, Shimogawara-chō, Higashiyama Ward, Kyoto" },
+
+  /* --- אוסקה: מסעדות --- */
+  { n: "Sushi Sakaba Sashisu", en: "Sushi Sakaba Sashisu Osaka", city: "אוסקה", cat: "food", note: "סושי" , k: "sushi" },
+  { n: "Daiki-suisan דוטונבורי", en: "Daiki Suisan Kaitenzushi Dotonbori", city: "אוסקה", cat: "food", note: "סושי מסוע" , k: "sushi", ll: [34.66853, 135.50291] , addr: "24, Dotonbori 1, Chūō Ward, Osaka" },
+  { n: "Sushi Hayata", en: "Sushi Hayata Osaka", city: "אוסקה", cat: "food", note: "סושי" , k: "sushi" },
+  { n: "Sanshin — אומקסה", en: "Sushi Sanshin Osaka", city: "אוסקה", cat: "food", note: "אומקסה — להזמין מראש", book: true , k: "other" },
+  { n: "Ichiran נמבה", en: "Ichiran Namba Midosuji", city: "אוסקה", cat: "food", note: "ראמן — ללא חזיר" , k: "ramen" },
+  { n: "OSAKA ENGINE RAMEN", en: "Osaka Engine Ramen", city: "אוסקה", cat: "food", note: "ראמן" , k: "ramen" },
+  { n: "Kyushu Ramen Kio", en: "Kyushu Ramen Kio Dotonbori", city: "אוסקה", cat: "food", note: "ראמן אותנטי" , k: "ramen", ll: [34.66458, 135.50362] , addr: "Sennichimae Doguyasuji Shopping St, Nanba-Sennichimae, Chūō Ward, Osaka" },
+  { n: "Mugito Mensuke", en: "Mugito Mensuke Osaka", city: "אוסקה", cat: "food", note: "ראמן מומלץ מישלן" , k: "ramen", mich: true, ll: [34.71133, 135.49999] },
+  { n: "Ourlog coffee", en: "Ourlog Coffee Osaka", city: "אוסקה", cat: "food", note: "קפה ומאפה" , k: "sweets", ll: [34.66074, 135.53601] , addr: "御幸通商店街, Momodani 3-chome, Ikuno Ward, Osaka" },
+  { n: "Brooklyn Roasting Co.", en: "Brooklyn Roasting Company Kitahama", city: "אוסקה", cat: "food", note: "קפה ומאפה" , k: "sweets", ll: [34.69101, 135.50919] , addr: "Tosabori Street, Kitahama 1-chome, Chūō Ward, Osaka" },
+  { n: "GLITCH COFFEE", en: "Glitch Coffee Osaka", city: "אוסקה", cat: "food", note: "קפה ספשלטי" , k: "sweets", ll: [34.69366, 135.49553] , addr: "4, Nakanoshima 3-chome, Kita Ward, Osaka" },
+  { n: "CAFE TALES", en: "Cafe Tales Osaka", city: "אוסקה", cat: "food", note: "ארוחת בוקר" , k: "sweets", ll: [34.68103, 135.50364] , addr: "Sankyubashi-suji, Kyutaromachi 2-chome, Chūō Ward, Osaka" },
+  { n: "Wagyu Teppanyaki OUSAKA", en: "Wagyu Teppanyaki Ousaka", city: "אוסקה", cat: "food", note: "טפניאקי יוקרתי — להזמין מראש", book: true , k: "meat" },
+  { n: "Matsusakagyu M Hanare", en: "Matsusakagyu Yakiniku M Hanare Namba", city: "אוסקה", cat: "food", note: "יאקיניקו" , k: "meat" },
+  { n: "KITAN HIBIKI", en: "Kitan Hibiki Yakiniku Steak Osaka", city: "אוסקה", cat: "food", note: "וואגיו / סטייק" , k: "meat" },
+  { n: "La Pizza Regalo", en: "La Pizza Napoletana Regalo Osaka", city: "אוסקה", cat: "food", note: "איטלקית" , k: "other" },
+  { n: "Tempura Makino", en: "Tempura Makino Namba", city: "אוסקה", cat: "food", note: "טמפורה" , k: "other", ll: [34.70607, 135.51122] , addr: "18, Tenjinbashi 4-chome, Kita Ward, Osaka" },
+  { n: "Yakitori Ichimatsu", en: "Yakitori Ichimatsu Osaka", city: "אוסקה", cat: "food", note: "יאקיטורי מומלץ מישלן" , k: "meat", mich: true },
+  { n: "Alto Tritone", en: "Alto Tritone Osaka", city: "אוסקה", cat: "food", note: "איטלקית קטנה" , k: "other" },
+  { n: "Osteria La Cicerchia", en: "Osteria La Cicerchia Osaka", city: "אוסקה", cat: "food", note: "איטלקית מומלצת מישלן" , k: "other", mich: true },
+  { n: "BAR Inc", en: "Bar Inc Osaka", city: "אוסקה", cat: "exp", note: "בר קוקטיילים" , k: "bar" },
+  { n: "Bar Nayuta", en: "Bar Nayuta Osaka", city: "אוסקה", cat: "exp", note: "בר קוקטיילים" , k: "bar", ll: [34.67204, 135.49835] , addr: "大黒橋筋, Nishi-Shinsaibashi 1-chome, Chūō Ward, Osaka" },
+  { n: "Bar N", en: "Bar N Osaka", city: "אוסקה", cat: "exp", note: "בר משפחתי" , k: "bar" },
+  { n: "Akashic Records", en: "Osaka Cocktail Library Akashic Records", city: "אוסקה", cat: "exp", note: "בר קוקטיילים" , k: "bar" },
+  { n: "La Cime (2 כוכבים)", en: "La Cime Osaka", city: "אוסקה", cat: "food", note: "צרפתית-יפנית — להזמין מראש", book: true , k: "michelin", mich: true },
+  { n: "HAJIME (3 כוכבים)", en: "Hajime Osaka", city: "אוסקה", cat: "food", note: "גסטרונומיה — להזמין מראש", book: true , k: "michelin", mich: true },
+  { n: "Koryu (2 כוכבים)", en: "Koryu Osaka", city: "אוסקה", cat: "food", note: "קייסקי — להזמין מראש", book: true , k: "michelin", mich: true, ll: [34.69660, 135.49850] },
+  { n: "Tenjimbashi Aoki (2 כוכבים)", en: "Tenjimbashi Aoki Osaka", city: "אוסקה", cat: "food", note: "קייסקי — מקומות מוגבלים", book: true , k: "michelin", mich: true },
+  /* --- המלצות מהמחקר (פורומים ישראליים, Reddit, Time Out, Tripadvisor) — מאומתות מיקום --- */
+  { n: "מלון-פאן Kagetsudo", en: "Asakusa Kagetsudo Melonpan", city: "טוקיו", cat: "food", k: "street", ll: [35.71461, 139.79519], src: "מוסד באסאקוסה; תורים מ-10:00 — לאכול חם!", note: "לחמניית מלון ענקית, פריכה בחוץ ורכה בפנים · ליד סנסו-ג'י" },
+  { n: "סכינים: Kama-Asa (מ-1908)", en: "Kama-Asa Shoten Kappabashi", city: "טוקיו", cat: "shop", k: "knives", ll: [35.71230, 139.78870], src: "החנות המוערכת בקפבאשי; צוות דובר אנגלית", note: "חריטת שם חינם · חותמת האומן על הלהב" },
+  { n: "סכינים: Kamata Hakensha", en: "Kamata Hakensha Kappabashi", city: "טוקיו", cat: "shop", k: "knives", ll: [35.71311, 139.78848], src: "Time Out; השחזה במקום", note: "מבחר ענק + הדגמות השחזה" },
+  { n: "טמגויאקי Tsukiji Shouro", en: "Tsukiji Shouro Tamagoyaki", city: "טוקיו", cat: "food", k: "street", ll: [35.66664, 139.77024], src: "ספיישליסט חביתות מ-1924; גם Yamacho באותו רחוב", note: "חביתה יפנית מתוקה על מקל · סנדוויץ' הביצה המפורסם" },
+  { n: "קרפ Marion (מ-1976)", en: "Marion Crepes Takeshita Street", city: "טוקיו", cat: "food", k: "street", ll: [35.67150, 139.70370], src: "הקרפ המקורי של הרג'וקו", note: "עשרות טעמים · הסמל של רחוב טאקשיטה" },
+  { n: "Uobei — סושי מסך מגע", en: "Uobei Sushi Shibuya Dogenzaka", city: "טוקיו", cat: "food", k: "sushi", ll: [35.65770, 139.69870], src: "המלצה חוזרת בפורומים הישראליים (למטייל)", note: "מזמינים במסך והצלחת מגיעה בטיל · זול, טרי וכיף" },
+  { n: "וינטג': Flamingo", en: "Flamingo Shimokitazawa Vintage", city: "טוקיו", cat: "shop", k: "vintage", ll: [35.66080, 139.66760], src: "מ-2005; קונים בארה\"ב ומביאים לכאן", note: "אמריקנה אמצע המאה + כלים ואקססוריז רטרו" },
+  { n: "וינטג': Chicago", en: "Chicago Shimokitazawa Vintage", city: "טוקיו", cat: "shop", k: "vintage", ll: [35.66140, 139.66800], src: "25+ שנה בשימוקיטה", note: "רשת הווינטג' הוותיקה · גם קימונו יד-שנייה" },
+  { n: "וינטג' ב-800¥: STICK OUT", en: "Stick Out Vintage Shimokitazawa", city: "טוקיו", cat: "shop", k: "vintage", ll: [35.66070, 139.66850], src: "בלוגים; הכול ב-800 ין", note: "מציאות אמיתיות למי שאוהב לחפור" },
+  { n: "Super Potato — משחקי רטרו", en: "Super Potato Akihabara", city: "טוקיו", cat: "shop", k: "toys", ll: [35.69960, 139.77120], src: "מקדש הרטרו-גיימינג; כל משחק נבדק לפני מכירה", note: "3 קומות של נינטנדו/סגה עתיקים + ארקייד בקומה 5" },
+  { n: "סכינים: Aritsugu (מ-1560!)", en: "Aritsugu Knives Nishiki Market", city: "קיוטו", cat: "shop", k: "knives", ll: [35.00505, 135.76440], src: "מחרבות סמוראים לסכיני שף; חריטת שם במקום", note: "בכניסה לשוק נישיקי · השחזה על אבן מסתובבת מול העיניים" },
+  { n: "וורבימוצ'י Gion Komori", en: "Gion Komori Warabimochi", city: "קיוטו", cat: "food", k: "sweets", ll: [35.00590, 135.77510], src: "בית תה על נהר השיראקאווה בגיון", note: "הוורבימוצ'י הכי רך שיש + פרפה מאצ'ה" },
+  { n: "מאצ'ה Sawawa אראשיאמה", en: "Sawawa Arashiyama Matcha", city: "קיוטו", cat: "food", k: "sweets", ll: [35.01540, 135.67810], src: "בלוגי קיוטו; מאצ'ה עשירה במיוחד", note: "וורבימוצ'י וסופט מאצ'ה ברחוב הראשי של אראשיאמה" },
+  { n: "שוק קורומון איצ'יבה", en: "Kuromon Ichiba Market", city: "אוסקה", cat: "food", k: "market", ll: [34.66533, 135.50698], src: "'המטבח של אוסקה'; מומלץ גם בפורומים הישראליים", note: "שיפודי וואגיו, צדפות בגריל, פירות ים · 5 דק' מדוטונבורי · לבוא רעבים לפני 16:00" },
+  { n: "טקויאקי Wanaka", en: "Takoyaki Wanaka Dotonbori", city: "אוסקה", cat: "food", k: "street", ll: [34.66880, 135.50160], src: "מהאהובים על המקומיים; פריך בחוץ נוזלי בפנים", note: "תור זז מהר · חתיכות תמנון גדולות" },
+  { n: "טקויאקי Kukuru", en: "Takoyaki Kukuru Dotonbori", city: "אוסקה", cat: "food", k: "street", ll: [34.66875, 135.50110], src: "המפורסם עם התמנון הסגול על הקיר", note: "הכי מפורסם בדוטונבורי · קצת יקר יותר, שווה לחוויה" },
+  { n: "אוקונומיאקי Mizuno (מ-1945)", en: "Okonomiyaki Mizuno Dotonbori", city: "אוסקה", cat: "food", k: "other", ll: [34.66845, 135.50307], src: "ביב גורמן של מישלן; מוסד דוטונבורי", note: "אוקונומיאקי על פלנצ'ה מולכם · תור — לבוא מוקדם", book: true },
+  { n: "סכינים: Tower Knives", en: "Tower Knives Osaka Shinsekai", city: "אוסקה", cat: "shop", k: "knives", ll: [34.65234, 135.50690], src: "טריפאדוויזר: 'חנות הסכינים הכי טובה'; אנגלית מלאה", note: "סכיני סאקאי בעבודת יד · מלמדים אחיזה והשחזה · ליד מגדל טסוטנקאקו, 10 דק' מנמבה" },
+  { n: "בית התה Amazake-chaya", en: "Amazake Chaya Hakone", city: "האקונה", cat: "food", k: "sweets", ll: [35.20216, 139.04895], src: "400 שנה על דרך הטוקאידו העתיקה; מתכון שלא השתנה", note: "אמאזאקה חם (בלי אלכוהול) + מוצ'י על האש · בדרך למקדש האקונה" },
+  { n: "Bakery & Table — אגם אשי", en: "Bakery and Table Hakone Motohakone", city: "האקונה", cat: "food", k: "sweets", ll: [35.19850, 139.02900], src: "המאפייה המפורסמת של האקונה, על שפת האגם", note: "Pan de Soft — לחמנייה חמה עם גלידה · מול המזח במוטו-האקונה" },
+  { n: "Gora Brewery & Grill", en: "Gora Brewery and Grill Hakone", city: "האקונה", cat: "food", k: "bar", ll: [35.24760, 139.04634], src: "טריפאדוויזר 4.4; בירה מקומית", note: "מבשלה + גריל בגורה — ערב מושלם אחרי אונסן" },
+  { n: "Coco Tam's — באנג'י על החוף", en: "Coco Tams Beach Bar Bophut", city: "קוסמוי", cat: "exp", k: "bar", ll: [9.55920, 100.03130], src: "המקום המפורסם של סמוי; מופעי אש 19:30 ו-21:00", note: "פופים על החול, קוקטיילים ומופעי אש · בכפר הדייגים, 20 דק' הליכה מהמלון" },
+  { n: "כפר הדייגים — שוק שישי", en: "Fisherman's Village Walking Street Bophut", city: "קוסמוי", cat: "exp", k: "market", ll: [9.55898, 100.03151], src: "שוק הלילה הכי טוב בסמוי (ימי שישי)", note: "אוכל רחוב, דוכנים ומוזיקה · אתם שם בשישי 09.10 ✓" },
+  { n: "Luna Lounge — תונג נאי פאן", en: "Luna Lounge Thong Nai Pan Noi", city: "קופנגן", cat: "food", k: "other", ll: [9.77668, 100.05363], src: "טריפאדוויזר: מהמובילות בקופנגן", note: "פיוז'ן תאילנדי-צרפתי · 5 דק' הליכה מהפנווימאן" },
+  { n: "שוק לילה Ao Nang Landmark", en: "Ao Nang Landmark Night Market", city: "קראבי", cat: "food", k: "market", ll: [8.04290, 98.81231], src: "שוק הלילה הגדול באזור; כל ערב", note: "אוכל רחוב תאילנדי, שייקים ומנגו סטיקי רייס · ~25 דק' מהמלון" },
+  { n: "The Longtail Boat Restaurant", en: "The Longtail Boat Restaurant Ao Nang", city: "קראבי", cat: "food", k: "other", ll: [8.03200, 98.82500], src: "בלוגרים: 'השירות הכי טוב בתאילנד'", note: "פירות ים ותאילנדי על החוף באו-נאנג" },
+  { n: "שוק סופ\"ש בעיר קראבי", en: "Krabi Town Walking Street", city: "קראבי", cat: "food", k: "market", ll: [8.06397, 98.91618], src: "השוק המסודר והטעים במחוז (שישי-ראשון)", note: "אתם שם בסופ\"ש 26–27.09 ✓ · גריל פירות ים ומנגו סטיקי רייס" },
+  /* --- דגים, ברים, קניות ומטבח (סבב מחקר 2) --- */
+  { n: "טונה דון Maguroya Kurogin", en: "Maguroya Kurogin Tsukiji", city: "טוקיו", cat: "food", k: "fish", ll: [35.66533, 139.76986], src: "ספיישליסט טונה בצוקיג'י; תור מהבוקר", note: "קערת דון עם נתחי טונה בכל הדרגות — כולל אוטורו נמס" },
+  { n: "דגים על האש: Isomaru Suisan", en: "Isomaru Suisan Shibuya Center-gai", city: "טוקיו", cat: "food", k: "fish", ll: [35.66040, 139.69870], src: "רשת אהובה; פתוח עד מאוחר", note: "צולים לבד צדפות, סרטן-מיסו ודגים על גריל שולחני · אווירת איזקאיה" },
+  { n: "דגים: Uoshin Nogizaka", en: "Uoshin Nogizaka", city: "טוקיו", cat: "food", k: "fish", ll: [35.66650, 139.72550], src: "איזקאיית דגים מבוקשת; ליד רופונגי (יום 13)", note: "סשימי עשיר, דג צלוי ומנות ים טריות — כדאי להזמין מקום" , book: true },
+  { n: "בר BenFiddich", en: "Bar BenFiddich Shinjuku", city: "טוקיו", cat: "exp", k: "bar", ll: [35.68949, 139.69660], src: "מ-50 הברים הטובים בעולם; הברמן מגדל את הצמחים", note: "קוקטיילים בהתאמה אישית בלי תפריט · שינג'וקו · כדאי להגיע בפתיחה", book: true },
+  { n: "Albatross — גולדן גאי", en: "Albatross Golden Gai Shinjuku", city: "טוקיו", cat: "exp", k: "bar", ll: [35.69399, 139.70470], src: "מהמפורסמים בגולדן גאי; נברשות וקירות אדומים", note: "בר זעיר על 3 קומות · דמי ישיבה 500¥ · נכנסים בזמן ערב גולדן גאי (יום 14)" },
+  { n: "Dover Street Market", en: "Dover Street Market Ginza", city: "טוקיו", cat: "shop", k: "luxury", ll: [35.67046, 139.76315], src: "חנות הקונספט של קום דה גרסון", note: "7 קומות אוונגרד ומותגי יוקרה — גם רק בשביל העיניים · גינזה (יום 15)" },
+  { n: "HANDS שיבויה", en: "Tokyu Hands Shibuya", city: "טוקיו", cat: "shop", k: "mall", ll: [35.66201, 139.69791], src: "מוסד יפני; 8 קומות של דברים שלא ידעתם שצריך", note: "כלי כתיבה, גאדג'טים, כלי בית ומתנות · שיבויה" },
+  { n: "LOFT שיבויה", en: "Loft Shibuya", city: "טוקיו", cat: "shop", k: "mall", ll: [35.66100, 139.69953], src: "רשת הלייף-סטייל האהובה", note: "מכשירי כתיבה יפניים, קוסמטיקה ומתנות · ליד HANDS" },
+  { n: "BEAMS הרג'וקו", en: "Beams Harajuku", city: "טוקיו", cat: "shop", k: "fashion", ll: [35.67164, 139.70835], src: "המותג היפני המגדיר סטריטוור", note: "בלוק שלם של חנויות BEAMS — אופנה יפנית מודרנית · הרג'וקו (יום 1)" },
+  { n: "Onitsuka Tiger אומוטסנדו", en: "Onitsuka Tiger Omotesando", city: "טוקיו", cat: "shop", k: "fashion", ll: [35.66700, 139.70800], src: "הסניקרס היפני האיקוני (מקילל ביל)", note: "דגמים בלעדיים ליפן שאין בארץ · אומוטסנדו (יום 1)" },
+  { n: "Niimi — כלי מטבח (הפינה עם השף)", en: "Niimi Western Tableware Kappabashi", city: "טוקיו", cat: "shop", k: "utensils", ll: [35.71054, 139.78812], src: "חנות הפינה האיקונית של קפבאשי (ראש השף הענק על הגג)", note: "כלי הגשה, מחבתות וכל ציוד מטבח · תחילת רחוב קפבאשי (יום 2)" },
+  { n: "Dengama — קרמיקה יפנית", en: "Dengama Kappabashi Tableware", city: "טוקיו", cat: "shop", k: "utensils", ll: [35.71300, 139.78850], src: "בלוגים: המבחר הגדול ביפן של כלי חרס", note: "קערות ראמן, ספלי תה וצלחות אומנותיות · קפבאשי" },
 ];
 
 /* משימות שליחת מזוודות (Takkyubin) — לפי החוברת: למסור לפחות 24ש' לפני צ'ק-אאוט */
@@ -2175,30 +861,12 @@ const LUGGAGE = [
 
 /* טיפים כלליים — פאנל מידע */
 const TIPS = [
- {
-  "t": "הזמנות",
-  "d": "אטרקציות — חודש מראש (Klook, קוד OMERINJAPAN חוץ מדיסני/יוניברסל). שינקנסן — 1-2 שבועות. מסעדות — דרך קבלת המלון או OMAKASE.IN / TableCheck / Tabelog."
- },
- {
-  "t": "תחבורה",
-  "d": "Google Maps לניווט. כרטיס SUICA דיגיטלי באייפון — רכבות, אוטובוסים וגם קניות. מוניות: אפליקציית GO או Uber."
- },
- {
-  "t": "מזוודות",
-  "d": "שליחת מזוודות בין מלונות עובדת מצוין — למסור בקבלה 24 שעות לפני צ'ק-אאוט עם אישור המלון הבא. קריטי ליום האקונה!"
- },
- {
-  "t": "כסף",
-  "d": "מזומן להמיר בארץ (לא בשדה ביפן). כספומטים: 7-Eleven. Tax-Free מ-¥5,000 עם דרכון פיזי. BIC Camera: עוד 5% הנחה באשראי."
- },
- {
-  "t": "eSIM",
-  "d": "VOYE Global — קוד OMERINJAPAN ל-15% הנחה. להתקין לפני הטיסה. voyeglobal.com"
- },
- {
-  "t": "מעומר",
-  "d": "אל תיפלו לפומו — אי אפשר להספיק הכול, וזה בסדר. תטיילו בקצב שלכם ותיהנו!"
- }
+  { t: "הזמנות", d: "אטרקציות — חודש מראש (Klook, קוד OMERINJAPAN חוץ מדיסני/יוניברסל). שינקנסן — 1-2 שבועות. מסעדות — דרך קבלת המלון או OMAKASE.IN / TableCheck / Tabelog." },
+  { t: "תחבורה", d: "Google Maps לניווט. כרטיס SUICA דיגיטלי באייפון — רכבות, אוטובוסים וגם קניות. מוניות: אפליקציית GO או Uber." },
+  { t: "מזוודות", d: "שליחת מזוודות בין מלונות עובדת מצוין — למסור בקבלה 24 שעות לפני צ'ק-אאוט עם אישור המלון הבא. קריטי ליום האקונה!" },
+  { t: "כסף", d: "מזומן להמיר בארץ (לא בשדה ביפן). כספומטים: 7-Eleven. Tax-Free מ-¥5,000 עם דרכון פיזי. BIC Camera: עוד 5% הנחה באשראי." },
+  { t: "eSIM", d: "VOYE Global — קוד OMERINJAPAN ל-15% הנחה. להתקין לפני הטיסה. voyeglobal.com" },
+  { t: "מעומר", d: "אל תיפלו לפומו — אי אפשר להספיק הכול, וזה בסדר. תטיילו בקצב שלכם ותיהנו!" },
 ];
 
 /* שמות וכתובות ביפנית — לכרטיסי 'הראה לנהג מונית' 🚕 */
@@ -2302,58 +970,47 @@ const FLIGHTS = [
  {
   "r": "תל אביב ← טוקיו",
   "d": "המראה 06.09 בלילה · נחיתה 08.09 בבוקר",
-  "note": "לוודא שעות וקונקשן בכרטיס האלקטרוני"
+  "note": "לוודא שעות וקונקשן בכרטיס"
  },
  {
-  "r": "טוקיו ← תל אביב",
+  "r": "טוקיו ← קראבי",
   "d": "24.09",
-  "note": "לוודא שעת המראה בכרטיס · להגיע 3 שעות לפני"
+  "note": "טרם הוזמן — לתאם"
+ },
+ {
+  "r": "קראבי ← קוסמוי",
+  "d": "29.09",
+  "note": "טרם הוזמן · ומשם מעבורת לקופנגן"
+ },
+ {
+  "r": "קוסמוי ← בנגקוק",
+  "d": "11.10",
+  "note": "טרם הוזמן"
+ },
+ {
+  "r": "בנגקוק ← תל אביב",
+  "d": "12.10",
+  "note": "לוודא בכרטיס"
  }
 ];
 
 /* קישורים מהירים */
 const QUICKLINKS = [
- {
-  "t": "📶 VOYE eSIM — קוד OMERINJAPAN (-15%)",
-  "u": "https://voyeglobal.com"
- },
- {
-  "t": "🎟️ Klook — אטרקציות ושינקנסן",
-  "u": "https://www.klook.com"
- },
- {
-  "t": "🈂️ Google Translate",
-  "u": "https://translate.google.com"
- },
- {
-  "t": "🚕 GO Taxi (יפן)",
-  "u": "https://go.goinc.jp/"
- },
- {
-  "t": "🏨 Booking — הזמנות יפן",
-  "u": "https://www.booking.com"
- },
- {
-  "t": "🍣 OMAKASE.IN — מסעדות יוקרה",
-  "u": "https://omakase.in"
- },
- {
-  "t": "🍜 TableCheck — הזמנת מסעדות",
-  "u": "https://www.tablecheck.com"
- }
+  { t: "📶 VOYE eSIM — קוד OMERINJAPAN (-15%)", u: "https://voyeglobal.com" },
+  { t: "🎟️ Klook — אטרקציות ושינקנסן", u: "https://www.klook.com" },
+  { t: "🈂️ Google Translate", u: "https://translate.google.com" },
+  { t: "🚕 GO Taxi (יפן)", u: "https://go.goinc.jp/" },
+  { t: "🛵 Grab (תאילנד)", u: "https://www.grab.com" },
+  { t: "🏨 Booking — הזמנות יפן", u: "https://www.booking.com" },
+  { t: "🏝️ Agoda — הזמנות תאילנד", u: "https://www.agoda.com" },
+  { t: "🍣 OMAKASE.IN — מסעדות יוקרה", u: "https://omakase.in" },
+  { t: "🍜 TableCheck — הזמנת מסעדות", u: "https://www.tablecheck.com" },
 ];
 
 /* חירום — לוודא מספרים לפני היציאה */
 const EMERGENCY = [
- {
-  "t": "🇯🇵 יפן",
-  "items": [
-   "משטרה: 110",
-   "אמבולנס / כיבוי: 119",
-   "קו תיירים JNTO באנגלית 24/7: 050-3816-2787",
-   "שגרירות ישראל בטוקיו: +81-3-3264-0911"
-  ]
- }
+  { t: "🇯🇵 יפן", items: ["משטרה: 110", "אמבולנס / כיבוי: 119", "קו תיירים JNTO באנגלית 24/7: 050-3816-2787", "שגרירות ישראל בטוקיו: +81-3-3264-0911"] },
+  { t: "🇹🇭 תאילנד", items: ["משטרה: 191", "משטרת תיירות (אנגלית): 1155", "אמבולנס: 1669", "שגרירות ישראל בבנגקוק: +66-2-204-9200"] },
 ];
 
 /* יעדים — היררכיית ניווט: מדינה ← יעד ← ימים (כולל יום המעבר) */
@@ -2362,7 +1019,6 @@ const SEGMENTS = [
   "id": "tokyo-a",
   "c": "JP",
   "n": "טוקיו",
-  "sub": "08–12.09",
   "days": [
    "d0",
    "d1",
@@ -2374,7 +1030,6 @@ const SEGMENTS = [
   "id": "kyoto",
   "c": "JP",
   "n": "קיוטו",
-  "sub": "12–16.09",
   "days": [
    "d3",
    "d4",
@@ -2386,7 +1041,6 @@ const SEGMENTS = [
   "id": "osaka",
   "c": "JP",
   "n": "אוסקה",
-  "sub": "16–19.09",
   "days": [
    "d7",
    "d8",
@@ -2397,7 +1051,6 @@ const SEGMENTS = [
   "id": "nara",
   "c": "JP",
   "n": "נארה",
-  "sub": "19.09",
   "days": [
    "d10"
   ]
@@ -2406,7 +1059,6 @@ const SEGMENTS = [
   "id": "hakone",
   "c": "JP",
   "n": "האקונה",
-  "sub": "20–22.09",
   "days": [
    "d11",
    "d12"
@@ -2416,11 +1068,94 @@ const SEGMENTS = [
   "id": "tokyo-b",
   "c": "JP",
   "n": "טוקיו · סיום",
-  "sub": "22–24.09",
   "days": [
    "d13",
    "d14",
    "d16"
   ]
+ },
+ {
+  "id": "krabi",
+  "c": "TH",
+  "n": "קראבי",
+  "days": [
+   "t1",
+   "t2"
+  ]
+ },
+ {
+  "id": "phangan",
+  "c": "TH",
+  "n": "קופנגן",
+  "days": [
+   "t3"
+  ]
+ },
+ {
+  "id": "samui",
+  "c": "TH",
+  "n": "קוסמוי",
+  "days": [
+   "t4"
+  ]
+ },
+ {
+  "id": "bangkok",
+  "c": "TH",
+  "n": "בנגקוק",
+  "days": [
+   "t5"
+  ]
  }
 ];
+
+/* ---------- 🗓 תאריכים דינמיים ----------
+   כל התאריכים (ימים, יעדים, מלונות, כותרות) נגזרים מ-TRIP.start ומ-nights של ימי-הטווח.
+   כדי להזיז את כל הטיול — משנים רק את TRIP.start (ו-flyDate); ערכי date/dow/label/sub שכתובים למעלה נדרסים. */
+(function deriveDates() {
+  const DOW = ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי", "שבת"];
+  const pad = n => String(n).padStart(2, "0");
+  const fmt = d => pad(d.getDate()) + "." + pad(d.getMonth() + 1);
+  const add = (d, n) => { const x = new Date(d); x.setDate(x.getDate() + n); return x; };
+  const range = (a, b) => a.getMonth() === b.getMonth() ? pad(a.getDate()) + "–" + fmt(b) : fmt(a) + "–" + fmt(b);
+  let cur = new Date(TRIP.start + "T12:00:00");
+  for (const d of DAYS) {
+    d._s = new Date(cur);
+    if (d.nights) {              // יום-טווח (יעד של כמה לילות)
+      d._e = add(cur, d.nights);
+      d.dfrom = fmt(d._s); d.dto = fmt(add(d._e, d.open ? 0 : -1)); d.dcheckout = fmt(d._e);
+      d.date = d.open ? fmt(d._s) + " והלאה" : range(d._s, d._e);
+      d.label = (d.ln || d.city) + " · " + (d.open ? fmt(d._s) + " ←" : d.date);
+    } else {                     // יום רגיל
+      d._e = add(cur, 1);
+      d.date = fmt(d._s); d.dow = DOW[d._s.getDay()];
+    }
+    cur = d.overlap ? d._s : d._e;
+  }
+  for (const sg of SEGMENTS) {
+    const ds = sg.days.map(id => DAYS.find(d => d.id === id)).filter(Boolean);
+    if (!ds.length) continue;
+    const a = ds[0], b = ds[ds.length - 1];
+    if (b.open) sg.sub = fmt(a._s) + " ←";
+    else if (ds.some(d => d.nights)) sg.sub = range(a._s, b._e);
+    else sg.sub = ds.length === 1 ? a.date : range(a._s, b._s);
+  }
+  for (const [hid, meta] of Object.entries(HOTELS)) {
+    const runs = [];
+    for (const d of DAYS) {
+      if (d.hotel !== hid) continue;
+      const last = runs[runs.length - 1];
+      if (last && +last.e === +d._s) { last.e = d._e; last.n += d.nights || 1; last.th = last.th || !!d.nights; }
+      else runs.push({ s: d._s, e: d._e, n: d.nights || 1, th: !!d.nights });
+    }
+    if (runs.length) meta.nights = runs.map(r => range(r.s, r.e) + (r.th ? " · " + r.n + " לילות" : "")).join(" + ");
+  }
+  const jp = DAYS.filter(d => d.c !== "TH"), th = DAYS.filter(d => d.c === "TH");
+  const thLast = th[th.length - 1];
+  TRIP.jpRange = range(jp[0]._s, jp[jp.length - 1]._s);
+  TRIP.thRange = th.length ? fmt(th[0]._s) + "–" + (thLast.open ? fmt(thLast._s) + "+" : fmt(thLast._e)) : "";
+  TRIP.fullRange = fmt(jp[0]._s) + "–" + (th.length ? (thLast.open ? fmt(thLast._s) + "+" : fmt(thLast._e)) : fmt(jp[jp.length - 1]._s));
+  TRIP.sub = TRIP.fullRange + " · " + TRIP.route;
+  const iso = d => d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
+  TRIP.endISO = iso(DAYS[DAYS.length - 1]._e);
+})();
