@@ -229,7 +229,7 @@ const PLACES = {
   "umeda-sky": { n: "Umeda Sky Building", en: "Umeda Sky Building", city: "אוסקה", cat: "site", part: "ערב",
     d: "תצפית פנורמית מקומה 39 — מדהים בשקיעה.", klook: "https://shorturl.at/2sUUm" },
   "dojima-yakiniku": { n: "Dojima Yakiniku — אומקסה", en: "Dojima Yakiniku Osaka", city: "אוסקה", cat: "food", part: "ערב", approx: true,
-    d: "וואגיו אומקסה ברמה גבוהה.", book: "להזמין מראש דרך הקבלה" },
+    d: "וואגיו אומקסה ברמה גבוהה. ⚠️ סגור בימי רביעי — 16.09 הוא רביעי! לוודא מראש או לבחור חלופה מהקטלוג.", book: "להזמין מראש דרך הקבלה" },
   "usj": { n: "יוניברסל סטודיוס יפן", en: "Universal Studios Japan", city: "אוסקה", cat: "exp", part: "כל היום",
     d: "להגיע שעה לפני הפתיחה! נינטנדו-וורלד והארי פוטר. אפליקציה עם זמני המתנה.",
     book: "כרטיסים + אקספרס פס חודש מראש", site: "https://www.usj.co.jp/web/en/us", klook: "https://shorturl.at/hlyTU" },
@@ -248,7 +248,7 @@ const PLACES = {
   "todaiji": { n: "מקדש טודאי-ג'י", en: "Todaiji Temple Nara", city: "נארה", cat: "site", part: "בוקר",
     d: "בודהה הענק בהיכל העץ הגדול בעולם." },
   "isuien": { n: "גן איסוי-אן", en: "Isuien Garden Nara", city: "נארה", cat: "site", part: "בוקר",
-    d: "גן יפני קלאסי ושקט." },
+    d: "גן יפני קלאסי ושקט (9:30–16:30). ⚠️ בסוף ספטמבר הגן נסגר לעיתים לתחזוקה שנתית — לוודא באתר isuien.or.jp או בטלפון לפני; חלופה חינמית: גן יושיקי-אן הסמוך." },
   "kasuga-taisha": { n: "מקדש קסוגה טאישה", en: "Kasuga Taisha Nara", city: "נארה", cat: "site", part: "צהריים",
     d: "מקדש הפנסים בלב היער." },
   "nakatanidou": { n: "מוצ'י Nakatanidou", en: "Nakatanidou Mochi Nara", city: "נארה", cat: "food", part: "צהריים",
@@ -274,7 +274,7 @@ const PLACES = {
   "roppongi-hills": { n: "רופונגי הילס + טוקיו מידטאון", en: "Roppongi Hills", city: "טוקיו", cat: "shop", part: "בוקר",
     d: "מתחמי קניות ואדריכלות; תצפית מוזיאון מורי (אופציה)." },
   "midtown-2121": { n: "21_21 Design Sight", en: "21_21 Design Sight Tokyo", city: "טוקיו", cat: "site", part: "צהריים",
-    d: "מוזיאון עיצוב של טדאו אנדו בגני מידטאון." },
+    d: "מוזיאון עיצוב של טדאו אנדו בגני מידטאון (10:00–19:00). ⚠️ סגור בימי שלישי — 22.09 הוא שלישי (חג); לבדוק באתר 2121designsight.jp אם פתוח חריג, אחרת לדלג." },
   "teamlab-borderless": { n: "teamLab Borderless", en: "teamLab Borderless Azabudai Hills", city: "טוקיו", cat: "exp", part: "אחה\"צ",
     d: "מוזיאון האמנות הדיגיטלית באזאבודאי הילס.", book: "להזמין שבוע-שבועיים מראש", klook: "https://shorturl.at/Zxcee" },
   "tokyo-tower": { n: "מגדל טוקיו", en: "Tokyo Tower", city: "טוקיו", cat: "site", part: "ערב",
@@ -1156,3 +1156,47 @@ function applyTripDates(ov) {
   TRIP.endISO = iso(DAYS[DAYS.length - 1]._e);
 }
 applyTripDates();
+
+/* =========================================================
+   🕘 SCHED — שעות מומלצות לכל עצירה, לפי יום (מוצג בפאנל היום ובפופאפ).
+   נבנה מנתוני שעות פתיחה + עומסים (ספטמבר 2026, כולל Silver Week 19–23.09).
+   מפתח: SCHED[dayId][placeId] = טקסט חופשי (טווח שעות / הערה).
+   ========================================================= */
+const SCHED = {
+  d0: { "hotel-shiodome": "מ-15:00", "toriyaki-ohana": "19:30–21:00" },
+  d1: { "meiji-shrine": "08:45–10:00", "takeshita-st": "10:15–11:15", "omotesando": "11:15–12:15",
+        "onodera-omotesando": "12:15–13:45", "hachiko": "14:15–14:45", "sbux-tsutaya": "14:45–15:30",
+        "katsugyu-dogenzaka": "16:00–17:00", "shibuya-parco": "17:15–19:15" },
+  d2: { "sensoji": "07:30–08:45", "nakamise": "08:45–09:45", "kappabashi": "10:00–11:15",
+        "ueno-park": "11:45–13:30", "skytree": "17:00–19:00", "setsugetsuka": "20:00–21:30" },
+  dfree: { "nikutarashi": "19:00–21:00" },
+  d3: { "tokyo-station": "08:30–09:00", "kyoto-station": "11:15–11:45", "hotel-nohga": "12:15–13:00",
+        "kyoto-gyoen": "13:30–14:40", "nijo-castle": "15:00–16:45", "pontocho": "18:00–19:00", "onodera-kyoto": "19:00–20:30" },
+  d4: { "monkey-park": "09:00–10:15", "togetsukyo": "10:15–10:45", "arabica-arashiyama": "10:45–11:15",
+        "bamboo-grove": "11:20–12:00", "kijurou": "12:15–13:30", "kinkakuji": "14:30–15:45", "bungo-gion": "18:30–20:30" },
+  d5: { "kiyomizudera": "07:00–08:45", "sannenzaka": "08:45–10:15", "nishiki-market": "10:45–12:30",
+        "maikoya": "13:30–15:00", "in-the-moon": "17:45–19:30" },
+  d6: { "fushimi-inari": "07:00–09:30", "fushimi-castle": "09:45–10:30", "gekkeikan": "10:45–11:45",
+        "shijo-dori": "13:00–15:00", "teamlab-biovortex": "15:30–17:30", "marutomi": "17:45–19:45" },
+  d7: { "hotel-flag": "11:30–12:00", "kaiyukan": "13:00–15:30", "yodobashi-umeda": "16:00–17:15",
+        "umeda-sky": "17:20–19:00", "dojima-yakiniku": "⚠️ סגור ברביעי!" },
+  d8: { "osaka-castle": "08:45–10:30", "namba-yasaka": "11:00–11:30", "rikuros": "11:45–12:30",
+        "shinsaibashi": "13:00–15:00", "dotonbori": "18:00–21:00" },
+  d9: { "usj": "07:15–21:00" },
+  d10: { "nara-park": "08:15–09:30", "todaiji": "09:30–10:45", "isuien": "11:00–12:00 · ⚠️ לוודא",
+         "kasuga-taisha": "12:00–13:00", "nakatanidou": "13:30–13:50", "kamaiki": "13:50–14:50" },
+  d11: { "osaka-station": "08:00–08:30", "odawara-station": "11:00–11:30", "openair-museum": "13:30–15:45",
+         "gora-park": "16:00–17:00", "hotel-suiun": "מ-17:15" },
+  d12: { "owakudani": "09:00–10:30", "togendai": "10:45–11:30", "hakone-shrine": "12:00–13:45" },
+  d13: { "roppongi-hills": "11:00–12:30", "midtown-2121": "⚠️ סגור בשלישי?", "teamlab-borderless": "15:00–17:00",
+         "tokyo-tower": "18:00–19:30", "savoy": "20:00–21:30" },
+  d14: { "ogawa-lab": "08:30–09:30", "reload": "11:00–12:00", "flippers-shimokita": "12:00–13:00",
+         "shirohige": "13:15–14:00", "shinjuku-gyoen": "14:30–16:00", "cois-cafe": "16:15–16:45",
+         "uniqlo-shinjuku": "17:00–18:00", "godzilla": "18:00–18:30", "kabukicho-goldengai": "18:30–20:00", "shodai": "20:30–22:00" },
+  d16: { "airport-dep": "בשדה 3 שעות לפני" },
+  t1: { "arr-kbv": "לתאם איסוף מראש", "hotel-tubkaak": "מ-15:00" },
+  t2: { "hotel-banyan": "מ-15:00" },
+  t3: { "flight-kbv-usm": "בשדה 12:30–14:00", "ferry-samui-phangan": "16:00–17:00", "hotel-panviman": "מ-18:00" },
+  t4: { "ferry-phangan-samui": "09:15–11:05", "hotel-hansar": "מ-11:30" },
+  t5: { "flight-usm-bkk": "לוודא שעה בכרטיס", "bkk-airport": "בשדה 3 שעות לפני" },
+};
