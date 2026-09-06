@@ -27,7 +27,31 @@ const Store = (() => {
     return m;
   }
   function freshState() {
-    return { v: TRIP.version, dayStops: defaultDayStops(), custom: {}, checked: {}, visited: {} };
+    return { v: TRIP.version, mig: MIG, dayStops: defaultDayStops(), custom: {}, checked: {}, visited: {} };
+  }
+
+  /* --- מיגרציות חד-פעמיות ---
+     עדכוני מסלול שחלים גם על מצב שמור/קישור ישן, בלי לגעת בשאר העריכות
+     (checked, visited, custom, ימים אחרים). mig שמור ב-state כך שכל רמה רצה פעם אחת. */
+  const MIG = 1;
+  function migrate(s) {
+    if ((s.mig || 0) >= MIG) return false;
+    // רמה 1 (09.2026): ביטול האקונה — ימי 20–21.09 הופכים לימי טוקיו פתוחים;
+    // אוהאנה 23.09 (הוזמן ✔ יחד עם תומר ורזי); קראבי — ריזורט פתוח במקום טובקק.
+    if (Array.isArray(s.dayStops.d11) && s.dayStops.d11.includes("openair-museum")) {
+      s.dayStops.d11 = ["osaka-tokyo-train", "hotel-shiodome"];
+    }
+    if (Array.isArray(s.dayStops.d12) && s.dayStops.d12.includes("owakudani")) {
+      s.dayStops.d12 = ["hotel-shiodome"];
+    }
+    if (Array.isArray(s.dayStops.d14) && !s.dayStops.d14.includes("toriyaki-ohana") && PLACES["toriyaki-ohana"]) {
+      s.dayStops.d14.push("toriyaki-ohana");
+    }
+    if (Array.isArray(s.dayStops.t1) && s.dayStops.t1.includes("hotel-tubkaak")) {
+      s.dayStops.t1 = ["arr-kbv", "hotel-krabi-tbd"];
+    }
+    s.mig = MIG;
+    return true;
   }
 
   /* --- גישה --- */
@@ -113,6 +137,7 @@ const Store = (() => {
     if (!s || typeof s !== "object" || s.v !== TRIP.version) return null;
     if (!s.dayStops || !s.custom) return null;
     const clean = freshState();
+    clean.mig = Number.isInteger(s.mig) && s.mig > 0 ? s.mig : 0; // מצב ישן בלי mig → ירוץ במיגרציה
     for (const d of DAYS) {
       if (Array.isArray(s.dayStops[d.id])) clean.dayStops[d.id] = s.dayStops[d.id].filter(id => typeof id === "string");
     }
@@ -144,7 +169,7 @@ const Store = (() => {
       const raw = localStorage.getItem(LS_KEY);
       if (raw) {
         const s = validate(JSON.parse(raw));
-        if (s) { state = s; return; }
+        if (s) { state = s; if (migrate(state)) persist(); return; }
       }
     } catch (e) { /* corrupt */ }
     state = freshState();
@@ -153,6 +178,7 @@ const Store = (() => {
   /* --- דיף לשיתוף --- */
   function diff() {
     const d = { v: TRIP.version, dayStops: {}, custom: state.custom };
+    if (state.mig) d.mig = state.mig;
     if (Object.keys(state.checked || {}).length) d.checked = state.checked;
     if (Object.keys(state.visited || {}).length) d.visited = state.visited;
     if (state.dates && Object.keys(state.dates).length) d.dates = state.dates;
@@ -165,6 +191,7 @@ const Store = (() => {
   }
   function applyDiff(d) {
     const s = freshState();
+    s.mig = Number.isInteger(d.mig) ? d.mig : 0; // קישור ישן בלי mig → ירוץ במיגרציה
     if (d.custom) s.custom = d.custom;
     if (d.checked) s.checked = d.checked;
     if (d.visited) s.visited = d.visited;
@@ -172,6 +199,7 @@ const Store = (() => {
     if (d.dayStops) for (const [k, v] of Object.entries(d.dayStops)) if (s.dayStops[k]) s.dayStops[k] = v;
     const clean = validate(s);
     if (!clean) throw new Error("bad diff");
+    migrate(clean);
     snapshot();
     state = clean;
     persist();
@@ -187,6 +215,7 @@ const Store = (() => {
   function replaceState(newState) {
     const clean = validate(newState);
     if (!clean) throw new Error("bad remote state");
+    migrate(clean);
     state = clean;
     persist();
     emit("remote");
@@ -235,6 +264,7 @@ const Store = (() => {
   function importJSON(text) {
     const s = validate(JSON.parse(text));
     if (!s) throw new Error("קובץ לא תקין");
+    migrate(s);
     snapshot();
     state = s;
     persist();

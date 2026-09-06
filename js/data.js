@@ -2,7 +2,7 @@
    Japan Trip Map — נתוני ברירת מחדל (מסלול יפן 10–26.09.2026)
    נבנה מתוך: חוברת סיכום OMERINJAPAN + מסלול שחר לוין
    התאמות: התחלה 11.09 (נחיתה 10.09 בלילה), ללא דיסני,
-   האקונה לילה אחד (21–22.09).
+   בלי האקונה — במקומה יומיים פתוחים בטוקיו (20–21.09).
    ========================================================= */
 "use strict";
 
@@ -10,7 +10,7 @@ const TRIP = {
  "title": "יפן–תאילנד 2026 · המפה של שחר",
  "start": "2026-09-08",
  "flyDate": "2026-09-06",
- "route": "🇯🇵 טוקיו → קיוטו → אוסקה → נארה → האקונה → 🇹🇭 קראבי → קופנגן → קוסמוי → בנגקוק",
+ "route": "🇯🇵 טוקיו → קיוטו → אוסקה → נארה → 🇹🇭 קראבי → קופנגן → קוסמוי → בנגקוק",
  "sub": "",
  "version": 1,
  "klookCode": "OMERINJAPAN"
@@ -77,6 +77,7 @@ const COORDS = {
   "nakatanidou":         [34.68190, 135.82780],
   "kamaiki":             [34.68297, 135.82881],
   "osaka-station":       [34.73350, 135.50020],
+  "osaka-tokyo-train":   [34.73350, 135.50020],
   "odawara-station":     [35.25640, 139.15520],
   "hotel-suiun":         [35.24948, 139.04602],
   "openair-museum":      [35.24470, 139.05030],
@@ -114,6 +115,7 @@ const COORDS = {
   "airport-dep":         [35.54490, 139.76940],
   "arr-kbv":             [8.09928, 98.98319],
   "hotel-tubkaak":       [8.09143, 98.74772],
+  "hotel-krabi-tbd":     [8.08630, 98.90630],
   "hotel-banyan":        [8.09448, 98.74832],
   "flight-kbv-usm":      [8.09928, 98.98319],
   "ferry-samui-phangan": [9.56451, 100.06184],
@@ -141,7 +143,8 @@ const PLACES = {
   "hotel-shiodome": { n: "מלון Royal Park Iconic שיודומה", en: "The Royal Park Hotel Iconic Tokyo Shiodome", city: "טוקיו", cat: "hotel",
     d: "המלון בטוקיו — שהות ראשונה 10–13.09 ושהות שנייה 22–26.09 (הוזמן ✔, Booking.com)." },
   "toriyaki-ohana": { n: "Toriyaki Ohana — יקיטורי", en: "Toriyaki Ohana Tokyo", city: "טוקיו", cat: "food",
-    d: "יקיטורי בסגנון אומקסה — הוזמן ל-20:00.", book: "להזמין מראש דרך הקבלה / OMAKASE.IN" },
+    
+    d: "יקיטורי אומקסה — הוזמן ✔ 23.09 ב-20:00 · 4 סועדים יחד עם תומר ורזי · דלפק · בלי אבוקדו (OMAKASE I-IDX2PXCW). ביום 0 — רק אם נשאר כוח, בלי הזמנה." },
   "meiji-shrine": { n: "מקדש מייג'י", en: "Meiji Jingu Shrine", city: "טוקיו", cat: "site", part: "בוקר",
     d: "מקום שקט ומרשים בלב פארק יויוגי." },
   "takeshita-st": { n: "רחוב טאקשיטה", en: "Takeshita Street Harajuku", city: "טוקיו", cat: "shop", part: "בוקר",
@@ -255,6 +258,8 @@ const PLACES = {
     d: "הכנת המוצ'י המהירה והמפורסמת — מופע בפני עצמו." },
   "kamaiki": { n: "אודון Kamaiki (מישלן)", en: "Udon Kamaiki Nara", city: "נארה", cat: "food", part: "צהריים",
     d: "אודון מומלץ מישלן, 3 דקות מחנות המוצ'י." },
+  "osaka-tokyo-train": { n: "שינקנסן אוסקה ← טוקיו", en: "Shin-Osaka Station", city: "אוסקה", cat: "transit",
+    d: "כ-2:30 בנוזומי/היקארי משין-אוסקה לתחנת טוקיו. עם מזוודות גדולות — להזמין מושבים מראש.", book: "כרטיס מראש — Klook (קוד OMERINJAPAN)" },
   "osaka-station": { n: "רכבת אוסקה ← אודווארה (האקונה)", en: "Shin-Osaka Station", city: "אוסקה", cat: "transit",
     d: "שינקנסן משין-אוסקה לאודווארה (~3 שעות), משם אוטובוס/רכבת גורה להאקונה.", book: "כרטיס מראש — Klook (קוד OMERINJAPAN)" },
   "odawara-station": { n: "תחנת אודווארה — מעבר להאקונה", en: "Odawara Station", city: "האקונה", cat: "transit",
@@ -526,32 +531,27 @@ const DAYS = [
  {
   "id": "d11",
   "n": 12,
-  "city": "האקונה",
+  "city": "טוקיו",
   "color": "#9333ea",
-  "title": "להאקונה — אמנות ואונסן",
-  "sum": "בוקר נסיעה, אחה\"צ המוזיאון הפתוח וגני גורה, וערב ריוקאן עם אונסן.",
-  "hotel": "hotel-suiun",
-  "transit": "שינקנסן שין-אוסקה←אודווארה ~3 שעות + רכבת/אוטובוס לגורה. לשלוח מזוודות לטוקיו מראש!",
+  "title": "חזרה לטוקיו",
+  "sum": "בוקר שינקנסן חזרה לטוקיו וצ'ק-אין בשיודומה — והיום פתוח לגמרי: הוסיפו עצירות מהקטלוג (+) או מההמלצות החיות 🍜.",
+  "hotel": "hotel-shiodome",
+  "transit": "שינקנסן שין-אוסקה ← טוקיו ~2:30. להזמין מושבים מראש (Klook, קוד OMERINJAPAN).",
   "stops": [
-   "osaka-station",
-   "odawara-station",
-   "openair-museum",
-   "gora-park",
-   "hotel-suiun"
+   "osaka-tokyo-train",
+   "hotel-shiodome"
   ]
  },
  {
   "id": "d12",
   "n": 13,
-  "city": "האקונה",
+  "city": "טוקיו",
   "color": "#c026d3",
-  "title": "לולאת האקונה",
-  "sum": "רכבל לאוואקודאני (פוג'י!), שייט פיראטים באגם אשי, הטורי הצף — וחזרה לריוקאן לעוד ערב אונסן.",
-  "hotel": "hotel-suiun",
+  "title": "יום חופשי בטוקיו",
+  "sum": "יום פתוח בטוקיו — בלי תוכנית קבועה. הוסיפו מה שבא לכם מהקטלוג (+) או מההמלצות החיות 🍜.",
+  "hotel": "hotel-shiodome",
   "stops": [
-   "owakudani",
-   "togendai",
-   "hakone-shrine"
+   "hotel-shiodome"
   ]
  },
  {
@@ -589,7 +589,8 @@ const DAYS = [
    "uniqlo-shinjuku",
    "godzilla",
    "kabukicho-goldengai",
-   "shodai"
+   "shodai",
+   "toriyaki-ohana"
   ]
  },
  {
@@ -615,6 +616,8 @@ PLACES["shodai"] = { n: "shodai — אודון קארי", en: "Curry Udon Shodai
 Object.assign(PLACES, {
   "arr-kbv": { n: "נחיתה בקראבי ✈️", en: "Krabi International Airport", city: "קראבי", cat: "transit",
     d: "26.09 · טיסה מטוקיו (קבלה 1357764, bookaflight) — לוודא שעה בכרטיס. משדה התעופה ~40 דק' נסיעה למלון." },
+  "hotel-krabi-tbd": { n: "ריזורט בקראבי — לעדכן", en: "Krabi Beach Resort", city: "קראבי", cat: "hotel", approx: true,
+    d: "24–28.09 · הריזורט טרם נבחר — כשתסגרו מלון, ערכו את העצירה (✎) עם השם והכתובת והפין יתמקם אוטומטית." },
   "hotel-tubkaak": { n: "The Tubkaak Krabi Boutique Resort", en: "The Tubkaak Krabi Boutique Resort", city: "קראבי", cat: "hotel",
     d: "26–28.09 · הוזמן ✔ (Agoda 672013915) · כולל ארוחת בוקר · חוף טובקק השקט, מול איי הונג." },
   "hotel-banyan": { n: "Banyan Tree Krabi", en: "Banyan Tree Krabi", city: "קראבי", cat: "hotel",
@@ -636,10 +639,10 @@ Object.assign(PLACES, {
 });
 
 DAYS.push(
-  {"id":"t1","nights":2,"ln":"קראבי","n":17,"c":"TH","short":"קראבי א׳","city":"קראבי","color":"#0284c7","title":"נחיתה בקראבי — The Tubkaak","sum":"נחיתה מטוקיו וצ'ק-אין בטובקק. חוף, בריכה והתאוששות מהקצב של יפן. אטרקציות יתווספו בהמשך.","hotel":"hotel-tubkaak","transit":"משדה התעופה של קראבי ~40 דק' נסיעה למלון — לתאם הסעה מראש.","stops":["arr-kbv","hotel-tubkaak"]},
-  {"id":"t2","nights":3,"ln":"קראבי","n":18,"c":"TH","short":"קראבי ב׳","city":"קראבי","color":"#0f766e","title":"Banyan Tree קראבי","sum":"מעבר לבניאן טרי — בריכה, ספא ושקיעות. רעיונות להמשך: שייט 4 איים, לגונת האמרלד, ריילי ביץ'.","hotel":"hotel-banyan","stops":["hotel-banyan"]},
+  {"id":"t1","nights":4,"ln":"קראבי","n":17,"c":"TH","short":"קראבי א׳","city":"קראבי","color":"#0284c7","title":"נחיתה בקראבי","sum":"נחיתה מטוקיו וצ'ק-אין בריזורט. חוף, בריכה והתאוששות מהקצב של יפן. אטרקציות יתווספו בהמשך.","hotel":"hotel-krabi-tbd","transit":"משדה התעופה של קראבי לתאם הסעה מראש לריזורט.","stops":["arr-kbv","hotel-krabi-tbd"]},
+  {"id":"t2","nights":3,"ln":"קראבי","n":18,"c":"TH","short":"קראבי ב׳","city":"קראבי","color":"#0f766e","title":"Banyan Tree קראבי","sum":"מעבר לבניאן טרי — יחד עם תומר ורזי. בריכה, ספא ושקיעות. רעיונות: שייט 4 איים, לגונת האמרלד, ריילי ביץ'.","hotel":"hotel-banyan","stops":["hotel-banyan"]},
   {"id":"t3","nights":5,"ln":"קופנגן","n":19,"c":"TH","short":"קופנגן","city":"קופנגן","color":"#15803d","title":"Panviman קופנגן","sum":"טיסה קצרה לסמוי, מעבורת לקופנגן — 5 לילות בפנווימאן שמעל מפרץ תונג נאי פאן.","hotel":"hotel-panviman","transit":"PG266 בשעה 14:00 (50 דק') ← נמל בנגרק ← מעבורת לקופנגן.","stops":["flight-kbv-usm","ferry-samui-phangan","hotel-panviman"]},
-  {"id":"t4","nights":7,"ln":"קוסמוי","n":20,"c":"TH","short":"קוסמוי","city":"קוסמוי","color":"#b45309","title":"Hansar קוסמוי","sum":"שבוע בהאנסר על חוף בופוט — שווקי לילה, Fisherman's Village והמון בריכה.","hotel":"hotel-hansar","transit":"מעבורת קופנגן ← סמוי ~45 דק', ומשם נסיעה קצרה לבופוט.","stops":["ferry-phangan-samui","hotel-hansar"]},
+  {"id":"t4","nights":5,"ln":"קוסמוי","n":20,"c":"TH","short":"קוסמוי","city":"קוסמוי","color":"#b45309","title":"Hansar קוסמוי","sum":"5 לילות בהאנסר על חוף בופוט — שווקי לילה, Fisherman's Village והמון בריכה.","hotel":"hotel-hansar","transit":"מעבורת קופנגן ← סמוי ~45 דק', ומשם נסיעה קצרה לבופוט.","stops":["ferry-phangan-samui","hotel-hansar"]},
   {"id":"t5","nights":2,"ln":"בנגקוק","n":21,"c":"TH","short":"בנגקוק","city":"בנגקוק","color":"#6d28d9","title":"בנגקוק — וטיסה הביתה","sum":"נחיתה בבנגקוק, יומיים אחרונים — וב-13.10 הטיסה הביתה.","hotel":null,"stops":["flight-usm-bkk","bkk-airport"]}
 );
 
@@ -657,11 +660,7 @@ const HOTELS = {
   "nights": "",
   "booked": false
  },
- "hotel-suiun": {
-  "nights": "",
-  "booked": false
- },
- "hotel-tubkaak": {
+ "hotel-krabi-tbd": {
   "nights": "",
   "booked": false
  },
@@ -860,8 +859,8 @@ const LUGGAGE = [
  {
   "id": "lug-3",
   "day": "d10",
-  "title": "🧳 חשוב! מזוודות ישר לטוקיו — מדלגות על האקונה",
-  "d": "למסור בקבלה באוסקה עם אישור Royal Park Iconic שיודומה. להאקונה לוקחים רק תיק לילה קטן לריוקאן — ככה נוסעים קל ברכבל ובשייט."
+  "title": "🧳 מזוודות לטוקיו — ברכבת או במשלוח",
+  "d": "ב-20.09 נוסעים ישר אוסקה ← טוקיו: אפשר לקחת את המזוודות על השינקנסן (להזמין מושבים עם מקום למזוודות) או למסור יום קודם בקבלה עם אישור Royal Park Iconic שיודומה."
  }
 ];
 
@@ -869,7 +868,7 @@ const LUGGAGE = [
 const TIPS = [
   { t: "הזמנות", d: "אטרקציות — חודש מראש (Klook, קוד OMERINJAPAN חוץ מדיסני/יוניברסל). שינקנסן — 1-2 שבועות. מסעדות — דרך קבלת המלון או OMAKASE.IN / TableCheck / Tabelog." },
   { t: "תחבורה", d: "Google Maps לניווט. כרטיס SUICA דיגיטלי באייפון — רכבות, אוטובוסים וגם קניות. מוניות: אפליקציית GO או Uber." },
-  { t: "מזוודות", d: "שליחת מזוודות בין מלונות עובדת מצוין — למסור בקבלה 24 שעות לפני צ'ק-אאוט עם אישור המלון הבא. קריטי ליום האקונה!" },
+  { t: "מזוודות", d: "שליחת מזוודות בין מלונות עובדת מצוין — למסור בקבלה 24 שעות לפני צ'ק-אאוט עם אישור המלון הבא." },
   { t: "כסף", d: "מזומן להמיר בארץ (לא בשדה ביפן). כספומטים: 7-Eleven. Tax-Free מ-¥5,000 עם דרכון פיזי. BIC Camera: עוד 5% הנחה באשראי." },
   { t: "eSIM", d: "VOYE Global — קוד OMERINJAPAN ל-15% הנחה. להתקין לפני הטיסה. voyeglobal.com" },
   { t: "מעומר", d: "אל תיפלו לפומו — אי אפשר להספיק הכול, וזה בסדר. תטיילו בקצב שלכם ותיהנו!" },
@@ -932,6 +931,7 @@ const JA = {
   "openair-museum": { n: "彫刻の森美術館", a: "神奈川県箱根町足柄下郡二ノ平" },
   "osaka-castle": { n: "大阪城", a: "大阪府大阪市中央区大阪城" },
   "osaka-station": { n: "新大阪駅", a: "大阪府大阪市淀川区宮原一丁目1" },
+  "osaka-tokyo-train": { n: "新大阪駅", a: "大阪府大阪市淀川区宮原一丁目1" },
   "owakudani": { n: "大涌谷", a: "神奈川県箱根町足柄下郡大湧谷小湧谷線" },
   "pontocho": { n: "先斗町", a: "京都府京都市中京区中島町" },
   "reload": { n: "reload 下北沢", a: "東京都世田谷区北沢三丁目" },
@@ -1044,19 +1044,12 @@ const SEGMENTS = [
   ]
  },
  {
-  "id": "hakone",
-  "c": "JP",
-  "n": "האקונה",
-  "days": [
-   "d11",
-   "d12"
-  ]
- },
- {
   "id": "tokyo-b",
   "c": "JP",
   "n": "טוקיו · סיום",
   "days": [
+   "d11",
+   "d12",
    "d13",
    "d14",
    "d16"
@@ -1185,16 +1178,15 @@ const SCHED = {
   d9: { "usj": "07:15–21:00" },
   d10: { "nara-park": "08:15–09:30", "todaiji": "09:30–10:45", "isuien": "11:00–12:00 · ⚠️ לוודא",
          "kasuga-taisha": "12:15–13:15", "nakatanidou": "13:40–14:00", "kamaiki": "14:00–14:50" },
-  d11: { "osaka-station": "08:00–08:30", "odawara-station": "11:00–11:30", "openair-museum": "13:30–15:45",
-         "gora-park": "16:00–17:00", "hotel-suiun": "מ-17:15" },
-  d12: { "owakudani": "09:00–10:30", "togendai": "10:45–11:30", "hakone-shrine": "12:00–13:45" },
+  d11: { "osaka-tokyo-train": "08:30–11:10", "hotel-shiodome": "מ-12:00" },
   d13: { "roppongi-hills": "11:00–12:30", "midtown-2121": "⚠️ סגור בשלישי?", "teamlab-borderless": "15:00–17:00",
          "tokyo-tower": "18:00–19:30", "savoy": "20:00–21:30" },
   d14: { "ogawa-lab": "08:30–09:30", "reload": "11:00–12:00", "flippers-shimokita": "12:00–13:00",
          "shirohige": "13:15–14:00", "shinjuku-gyoen": "14:30–16:00", "cois-cafe": "16:15–16:45",
-         "uniqlo-shinjuku": "17:00–18:00", "godzilla": "18:00–18:30", "kabukicho-goldengai": "18:30–20:00", "shodai": "20:30–22:00" },
+         "uniqlo-shinjuku": "17:00–18:00", "godzilla": "18:00–18:30", "kabukicho-goldengai": "18:30–19:20",
+         "toriyaki-ohana": "20:00–22:00 · ✔" },
   d16: { "airport-dep": "בשדה 3 שעות לפני" },
-  t1: { "arr-kbv": "לתאם איסוף מראש", "hotel-tubkaak": "מ-15:00" },
+  t1: { "arr-kbv": "לתאם איסוף מראש", "hotel-krabi-tbd": "מ-15:00" },
   t2: { "hotel-banyan": "מ-15:00" },
   t3: { "flight-kbv-usm": "בשדה 12:30–14:00", "ferry-samui-phangan": "16:00–17:00", "hotel-panviman": "מ-18:00" },
   t4: { "ferry-phangan-samui": "09:15–11:05", "hotel-hansar": "מ-11:30" },
