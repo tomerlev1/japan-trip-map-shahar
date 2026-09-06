@@ -33,7 +33,7 @@ const Store = (() => {
   /* --- מיגרציות חד-פעמיות ---
      עדכוני מסלול שחלים גם על מצב שמור/קישור ישן, בלי לגעת בשאר העריכות
      (checked, visited, custom, ימים אחרים). mig שמור ב-state כך שכל רמה רצה פעם אחת. */
-  const MIG = 1;
+  const MIG = 2;
   function migrate(s) {
     if ((s.mig || 0) >= MIG) return false;
     // רמה 1 (09.2026): ביטול האקונה — ימי 20–21.09 הופכים לימי טוקיו פתוחים;
@@ -50,6 +50,8 @@ const Store = (() => {
     if (Array.isArray(s.dayStops.t1) && s.dayStops.t1.includes("hotel-tubkaak")) {
       s.dayStops.t1 = ["arr-kbv", "hotel-krabi-tbd"];
     }
+    // רמה 2 (09.2026): בלי אודון shodai ב-23.09 — יורד לטובת ארוחת האוהאנה
+    if (Array.isArray(s.dayStops.d14)) s.dayStops.d14 = s.dayStops.d14.filter(id => id !== "shodai");
     s.mig = MIG;
     return true;
   }

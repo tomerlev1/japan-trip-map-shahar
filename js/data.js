@@ -589,7 +589,6 @@ const DAYS = [
    "uniqlo-shinjuku",
    "godzilla",
    "kabukicho-goldengai",
-   "shodai",
    "toriyaki-ohana"
   ]
  },
