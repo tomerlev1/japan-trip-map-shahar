@@ -1889,6 +1889,40 @@ const FRIENDRECS = {
  },
  "site": "https://www.instagram.com/next.shikaku0801/",
  "gurl": "https://maps.google.com/?cid=7185207767825424104&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
+},
+{
+ "id": "yr-ganni-parco",
+ "n": "GANNI — שיבויה PARCO",
+ "en": "GANNI Shibuya PARCO",
+ "city": "טוקיו",
+ "icon": "👗",
+ "cat": "shop",
+ "d": "החנות של GANNI בקומה 3 של קניון PARCO בשיבויה — האופנה הדנית בטוקיו. באותו בניין גם חנויות הפוקימון והנינטנדו.",
+ "resv": "walkin",
+ "note": "",
+ "ll": [
+  35.66214,
+  139.6985
+ ],
+ "type": "חנות לבגדי נשים",
+ "rating": 4,
+ "cnt": 6,
+ "price": "",
+ "hours": [
+  "יום ראשון: 11:00–21:00",
+  "יום שני: 11:00–21:00",
+  "יום שלישי: 11:00–21:00",
+  "יום רביעי: 11:00–21:00",
+  "יום חמישי: 11:00–21:00",
+  "יום שישי: 11:00–21:00",
+  "יום שבת: 11:00–21:00"
+ ],
+ "ja": {
+  "n": "GANNI 渋谷PARCO",
+  "a": "〒150-8377 東京都渋谷区宇田川町１５−１ 渋谷PARCO 3F"
+ },
+ "site": "https://www.ganni.com/en/home",
+ "gurl": "https://maps.google.com/?cid=6254060040547659284&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
 }
  ]
 };
