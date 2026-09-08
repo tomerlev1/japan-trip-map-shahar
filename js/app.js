@@ -670,6 +670,104 @@ async function gGeolocateFallback() {
   } catch (e) { toast("גם גוגל לא הצליח לאתר אתכם כרגע"); }
 }
 
+/* ---------- ⭐ ההמלצות של ירון (FRIENDRECS — סטטי, עובד גם אופליין) ---------- */
+let yrOn = false;
+const yrLayer = L.layerGroup();
+function yrTodayLine(hours, ll) {
+  if (!hours || hours.length !== 7) return null;
+  const tz = ll[1] < 110 ? "Asia/Bangkok" : "Asia/Tokyo";
+  const day = new Intl.DateTimeFormat("he", { timeZone: tz, weekday: "long" }).format(new Date());
+  return hours.find(x => x.startsWith(day)) || null;
+}
+function yrPopup(it) {
+  const box = el("div", "pop");
+  let h = '<div class="pop-t">' + it.icon + " " + esc(it.n) + "</div>";
+  h += '<div class="pop-chips">' +
+    (it.type ? '<span class="chip">' + esc(it.type) + "</span>" : "") +
+    (it.rating ? '<span class="chip rate">★ ' + it.rating.toFixed(1) + " (" + fmtCount(it.cnt) + ")</span>" : "") +
+    (it.price ? '<span class="chip">' + it.price + "</span>" : "") +
+    '<span class="chip">' + esc(it.city) + "</span></div>";
+  if (it.note) h += '<div class="yr-note">💬 ירון: „' + esc(it.note) + '”</div>';
+  if (it.d) h += '<div class="pop-d">' + esc(it.d) + "</div>";
+  const today = yrTodayLine(it.hours, it.ll);
+  if (today) {
+    const ti = it.hours.indexOf(today);
+    h += '<div class="gd-hours">🕐 היום: ' + esc(today.replace(/^[^:]+:\s*/, "")) + "</div>";
+    h += '<details class="gd-week"><summary>שעות פתיחה כל השבוע</summary>' +
+      it.hours.map((x, i) => '<div class="gd-day' + (i === ti ? " today" : "") + '">' + esc(x) + "</div>").join("") + "</details>";
+  }
+  h += it.resv === "book"
+    ? '<div class="pop-walkin">📌 חובה להזמין מראש — לתפוס סלוט פנוי, המקומות נחטפים</div>'
+    : it.resv === "both"
+      ? '<div class="pop-walkin">🚶📌 גם וגם — אפשר להגיע ספונטנית (בשעות שיא ייתכן תור), ואפשר גם להזמין מראש</div>'
+      : '<div class="pop-walkin">🚶 מקום ספונטני — מגיעים בלי הזמנה</div>';
+  box.innerHTML = h;
+  const links = el("div", "pop-links");
+  if (it.gurl) links.appendChild(linkBtn("🗺️ הדף במפות Google", it.gurl));
+  links.appendChild(linkBtn("🧭 ניווט לשם (הליכה)", "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(it.en || it.n) + "&travelmode=walking"));
+  if (it.ja && (it.ja.n || it.ja.a)) {
+    const tb = el("a", "lbtn");
+    tb.textContent = "🚕 כרטיס לנהג מונית (ביפנית)";
+    tb.href = "#";
+    tb.onclick = e => {
+      e.preventDefault(); map.closePopup();
+      $("#taxiName").textContent = it.ja.n || it.ja.a;
+      $("#taxiAddr").textContent = it.ja.n ? it.ja.a : "";
+      $("#taxiHeName").textContent = it.n;
+      showModal("taxiModal");
+    };
+    links.appendChild(tb);
+  }
+  if (it.site) links.appendChild(linkBtn("🌐 אתר רשמי", it.site));
+  box.appendChild(links);
+  const acts = el("div", "pop-acts");
+  const day = curDayObj();
+  const bAdd = el("button", "mini", day ? "＋ הוסף ליום הזה" : "＋ הוסף למסלול…");
+  bAdd.onclick = () => {
+    map.closePopup();
+    pickCatalog({
+      kind: "cat", n: it.n, en: it.en || it.n, city: it.city, cat: "food",
+      note: "⭐ המלצה של ירון" + (it.rating ? " · ★ " + it.rating.toFixed(1) + " בגוגל" : ""),
+      book: it.resv === "book" ? "להזמין מראש" : false, klook: "",
+      src: { ll: it.ll, addr: it.ja && it.ja.a || "", jaName: it.ja && it.ja.n || "" },
+    });
+  };
+  acts.appendChild(bAdd);
+  box.appendChild(acts);
+  return box;
+}
+function yrRender() {
+  if (yrLayer.getLayers().length) return;
+  for (const it of FRIENDRECS.items) {
+    const m = L.marker(it.ll, {
+      icon: L.divIcon({ className: "", html: '<div class="fpin yr" style="--kc:#d97706">' + it.icon + "</div>", iconSize: [28, 28], iconAnchor: [14, 14], popupAnchor: [0, -15] }),
+      zIndexOffset: 620, riseOnHover: true,
+    }).addTo(yrLayer);
+    if (!IS_TOUCH) m.bindTooltip(it.n + (it.rating ? " · ★" + it.rating.toFixed(1) : ""), { direction: "top", offset: [0, -13] });
+    m.bindPopup(() => yrPopup(it), { maxWidth: 300 });
+  }
+}
+const YrControl = L.Control.extend({
+  options: { position: "bottomleft" },
+  onAdd() {
+    const b = L.DomUtil.create("button", "gpsbtn yrbtn");
+    b.innerHTML = "⭐"; b.title = FRIENDRECS.t + " · " + FRIENDRECS.sub;
+    L.DomEvent.disableClickPropagation(b);
+    L.DomEvent.on(b, "click", e => {
+      L.DomEvent.stop(e);
+      yrOn = !yrOn;
+      b.classList.toggle("on", yrOn);
+      if (yrOn) {
+        yrRender();
+        map.addLayer(yrLayer);
+        toast("⭐ " + FRIENDRECS.items.length + " המלצות מהרשימה של ירון — פינים זהובים בטוקיו, קיוטו ואוסקה");
+      } else map.removeLayer(yrLayer);
+    });
+    return b;
+  },
+});
+if (typeof FRIENDRECS !== "undefined") map.addControl(new YrControl());
+
 function numIcon(n, color, approx, visited) {
   return L.divIcon({
     className: "",

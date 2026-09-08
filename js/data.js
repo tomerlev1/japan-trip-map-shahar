@@ -1191,3 +1191,538 @@ const SCHED = {
   t4: { "ferry-phangan-samui": "09:15–11:05", "hotel-hansar": "מ-11:30" },
   t5: { "flight-usm-bkk": "לוודא שעה בכרטיס", "bkk-airport": "בשדה 3 שעות לפני" },
 };
+/* ⭐ ההמלצות של ירון — רשימת Best of Japan המשותפת (נשלף מגוגל 08.09.2026, סטטי — עובד גם אופליין) */
+const FRIENDRECS = {
+ "t": "ההמלצות של ירון",
+ "sub": "Best of Japan · הרשימה של ירון בר",
+ "items": [
+  {
+   "id": "yr-galettoria",
+   "n": "Galettoria",
+   "en": "Galettoria",
+   "city": "טוקיו",
+   "icon": "🥞",
+   "d": "קרפריה צרפתית ותיקה בבית שקט בשכונת שוטו — קרפים מתוקים וגלטים מלוחים מקמח כוסמת.",
+   "resv": "walkin",
+   "note": "Crepe",
+   "ll": [
+    35.65923,
+    139.69385
+   ],
+   "type": "חנות קינוחים",
+   "rating": 3.9,
+   "cnt": 629,
+   "price": "",
+   "hours": [
+    "יום ראשון: 11:30–20:00",
+    "יום שני: 11:30–20:00",
+    "יום שלישי: סגור",
+    "יום רביעי: 11:30–20:00",
+    "יום חמישי: 11:30–20:00",
+    "יום שישי: 11:30–20:00",
+    "יום שבת: 11:30–20:00"
+   ],
+   "ja": {
+    "n": "ガレットリア",
+    "a": "〒150-0046 東京都渋谷区松濤１丁目２６−１"
+   },
+   "site": "http://www.many.co.jp/galettoria/",
+   "gurl": "https://maps.google.com/?cid=1571857731408086718&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
+  },
+  {
+   "id": "yr-gyoza-bao-tsutsumu",
+   "n": "Gyoza Bao Tsutsumu",
+   "en": "Gyoza Bao Tsutsumu",
+   "city": "אוסקה",
+   "icon": "🥟",
+   "d": "גיוזה בעבודת יד בסגנון דים-סאם — לפי ירון: הכיסונים הכי טובים שיש. פתוח רק בערב.",
+   "resv": "both",
+   "note": "BEST dumplings.",
+   "ll": [
+    34.65976,
+    135.49508
+   ],
+   "type": "מסעדת דים סאם",
+   "rating": 4.9,
+   "cnt": 751,
+   "price": "$$",
+   "hours": [
+    "יום ראשון: 18:00–1:00",
+    "יום שני: 18:00–1:00",
+    "יום שלישי: 18:00–1:00",
+    "יום רביעי: 18:00–1:00",
+    "יום חמישי: 18:00–1:00",
+    "יום שישי: 18:00–1:00",
+    "יום שבת: 18:00–1:00"
+   ],
+   "ja": {
+    "n": "餃子房 包ム",
+    "a": "〒556-0016 大阪府大阪市浪速区元町３丁目１２−２３"
+   },
+   "site": "https://www.eat-class.co.jp/",
+   "gurl": "https://maps.google.com/?cid=2834827390764022809&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
+  },
+  {
+   "id": "yr-sennichimae-yasudaya",
+   "n": "Sennichimae Yasudaya",
+   "en": "Sennichimae Yasudaya",
+   "city": "אוסקה",
+   "icon": "🥟",
+   "d": "מוסד גיוזה ליד נמבה — כיסונים מעולים במחיר עממי, פתוח עד מאוחר.",
+   "resv": "both",
+   "note": "Great dumplings",
+   "ll": [
+    34.66734,
+    135.50382
+   ],
+   "type": "מסעדת כיסונים",
+   "rating": 4.3,
+   "cnt": 436,
+   "price": "$",
+   "hours": [
+    "יום ראשון: 16:00–0:00",
+    "יום שני: 16:00–0:00",
+    "יום שלישי: סגור",
+    "יום רביעי: 16:00–0:00",
+    "יום חמישי: 16:00–0:00",
+    "יום שישי: 16:00–2:00",
+    "יום שבת: 16:00–2:00"
+   ],
+   "ja": {
+    "n": "千日前やすだや なんばの餃子専門店",
+    "a": "〒542-0074 大阪府大阪市中央区千日前１丁目９−８ 大ざわビル"
+   },
+   "site": "http://www.yasuda-ya.jp/",
+   "gurl": "https://maps.google.com/?cid=6540797937804824870&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
+  },
+  {
+   "id": "yr-gyukatsu-kyoto-katsugyu-",
+   "n": "GYUKATSU Kyoto Katsugyu Namba-Walk 1st Avenue",
+   "en": "GYUKATSU Kyoto Katsugyu Namba-Walk 1st Avenue",
+   "city": "אוסקה",
+   "icon": "🥩",
+   "d": "גיוקאצו — קציצת וואגיו בציפוי פריך וטיגון קצר, מסיימים על אבן לוהטת. חובה לפי ירון.",
+   "resv": "both",
+   "note": "MUST",
+   "ll": [
+    34.66732,
+    135.49836
+   ],
+   "type": "מסעדה יפנית",
+   "rating": 4.9,
+   "cnt": 18277,
+   "price": "$$",
+   "hours": [
+    "יום ראשון: 10:30–22:00",
+    "יום שני: 10:30–22:00",
+    "יום שלישי: 10:30–22:00",
+    "יום רביעי: 10:30–22:00",
+    "יום חמישי: 10:30–22:00",
+    "יום שישי: 10:30–22:00",
+    "יום שבת: 10:30–22:00"
+   ],
+   "ja": {
+    "n": "牛カツ京都勝牛 なんばウォーク1番街店",
+    "a": "〒542-0076 大阪府大阪市中央区難波２丁目３ 虹のまち1-5 なんばウォーク 1番街北通り"
+   },
+   "site": "https://gyukatsu-kyotokatsugyu.com/store/nambawalk",
+   "gurl": "https://maps.google.com/?cid=8087826361406868953&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
+  },
+  {
+   "id": "yr-kyoto-niku-kappo-miyata",
+   "n": "Kyoto Niku-Kappo Miyata",
+   "en": "Kyoto Niku-Kappo Miyata",
+   "city": "קיוטו",
+   "icon": "🥩",
+   "d": "קאפו בשר יוקרתי בקיוטו — חובה לפי ירון: למצוא סלוט פנוי ולהזמין מראש, המקומות נחטפים.",
+   "resv": "book",
+   "note": "MUST. Find a timeslot it’s available and go",
+   "ll": [
+    34.99026,
+    135.75629
+   ],
+   "type": "מסעדה יפנית",
+   "rating": 4.8,
+   "cnt": 158,
+   "price": "$$$$",
+   "hours": [
+    "יום ראשון: 12:00–14:00, 17:00–22:00",
+    "יום שני: 17:00–22:00",
+    "יום שלישי: 17:00–22:00",
+    "יום רביעי: 17:00–22:00",
+    "יום חמישי: 17:00–22:00",
+    "יום שישי: 17:00–22:00",
+    "יום שבת: 12:00–14:00, 17:00–22:00"
+   ],
+   "ja": {
+    "n": "京都肉割烹 みや田",
+    "a": "〒600-8318 京都府京都市下京区井筒町６５６"
+   },
+   "site": "https://tabelog.com/kyoto/A2601/A260101/26039467/?utm_source=GBP&utm_medium=GBP&utm_term=GBP&utm_content=GBP&utm_campaign=GBP",
+   "gurl": "https://maps.google.com/?cid=16319536988419706398&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
+  },
+  {
+   "id": "yr-blue-fir-tree",
+   "n": "Blue Fir Tree",
+   "en": "Blue Fir Tree",
+   "city": "קיוטו",
+   "icon": "🥞",
+   "d": "הפנקייק-סופלה הכי טוב לפי ירון — בית קפה קטן ונעים ליד גיון. סגור בין 12:00 ל-13:30.",
+   "resv": "walkin",
+   "note": "BEST pancake.",
+   "ll": [
+    35.00328,
+    135.77311
+   ],
+   "type": "בית קפה",
+   "rating": 4.2,
+   "cnt": 573,
+   "price": "$$",
+   "hours": [
+    "יום ראשון: 9:00–12:00, 13:30–17:00",
+    "יום שני: סגור",
+    "יום שלישי: 9:00–12:00, 13:30–17:00",
+    "יום רביעי: 9:00–12:00, 13:30–17:00",
+    "יום חמישי: 9:00–12:00, 13:30–17:00",
+    "יום שישי: 9:00–12:00, 13:30–17:00",
+    "יום שבת: 9:00–12:00, 13:30–17:00"
+   ],
+   "ja": {
+    "n": "ブルーファーツリー",
+    "a": "〒605-0802 京都府京都市東山区大和町６−１"
+   },
+   "site": "http://www.cafebluefirtree.com/",
+   "gurl": "https://maps.google.com/?cid=12782657891408885310&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
+  },
+  {
+   "id": "yr-curry-tempura-koisus",
+   "n": "curry & tempura koisus",
+   "en": "curry & tempura koisus",
+   "city": "קיוטו",
+   "icon": "🍛",
+   "d": "קארי יפני עם טמפורה מעל — ירון לא הספיק להגיע, אבל אמור להיות מצוין.",
+   "resv": "walkin",
+   "note": "We didn’t get there but should be very good",
+   "ll": [
+    35.00033,
+    135.77118
+   ],
+   "type": "מסעדה יפנית המתמחה במאכלי קארי",
+   "rating": 4.7,
+   "cnt": 1265,
+   "price": "$$",
+   "hours": [
+    "יום ראשון: 11:00–21:00",
+    "יום שני: 11:00–21:00",
+    "יום שלישי: 11:00–21:00",
+    "יום רביעי: 11:00–21:00",
+    "יום חמישי: 11:00–21:00",
+    "יום שישי: 11:00–21:00",
+    "יום שבת: 11:00–21:00"
+   ],
+   "ja": {
+    "n": "curry & tempura koisus",
+    "a": "〒605-0801 京都府京都市東山区宮川筋３丁目２９２"
+   },
+   "site": "http://www.currykoisus.com/",
+   "gurl": "https://maps.google.com/?cid=12142554726031398447&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
+  },
+  {
+   "id": "yr-ginjo-ramen-kubota",
+   "n": "Ginjo Ramen Kubota",
+   "en": "Ginjo Ramen Kubota",
+   "city": "קיוטו",
+   "icon": "🍜",
+   "d": "ראמן וצוקמן שאנשים עומדים בתור בשבילם בצהריים — Amazing לפי ירון.",
+   "resv": "walkin",
+   "note": "Amazing",
+   "ll": [
+    34.99294,
+    135.75526
+   ],
+   "type": "מסעדה שמגישה מרק ראמן",
+   "rating": 4.4,
+   "cnt": 3295,
+   "price": "$$",
+   "hours": [
+    "יום ראשון: 11:00–14:30, 18:00–22:00",
+    "יום שני: 11:00–14:30, 18:00–22:00",
+    "יום שלישי: 11:00–14:30, 18:00–22:00",
+    "יום רביעי: 11:00–14:30, 18:00–22:00",
+    "יום חמישי: 11:00–14:30, 18:00–22:00",
+    "יום שישי: 11:00–14:30, 18:00–22:00",
+    "יום שבת: 11:00–14:30, 18:00–22:00"
+   ],
+   "ja": {
+    "n": "吟醸らーめん久保田 本店",
+    "a": "〒600-8326 京都府京都市下京区西松屋町５６３−２"
+   },
+   "site": "https://kubota.base.shop/",
+   "gurl": "https://maps.google.com/?cid=3178078462438394485&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
+  },
+  {
+   "id": "yr-dandadan-shinjuku-higach",
+   "n": "Dandadan Shinjuku Higachiguchi",
+   "en": "Dandadan Shinjuku Higachiguchi",
+   "city": "טוקיו",
+   "icon": "🥟",
+   "d": "איזקאיה של גיוזה עסיסית בשינג'וקו — זול וטוב לפי ירון, מתאים גם לבירה של ערב.",
+   "resv": "both",
+   "note": "Cheap place with decent gyoza and other stuff",
+   "ll": [
+    35.69015,
+    139.70252
+   ],
+   "type": "פאב יפני",
+   "rating": 4.5,
+   "cnt": 384,
+   "price": "$$",
+   "hours": [
+    "יום ראשון: 11:30–0:00",
+    "יום שני: 11:30–0:00",
+    "יום שלישי: 11:30–0:00",
+    "יום רביעי: 11:30–0:00",
+    "יום חמישי: 11:30–0:00",
+    "יום שישי: 11:30–0:00",
+    "יום שבת: 11:30–0:00"
+   ],
+   "ja": {
+    "n": "肉汁餃子のダンダダン 新宿東口店",
+    "a": "〒160-0022 東京都新宿区新宿３丁目３５−１２"
+   },
+   "site": "https://www.dandadan.jp/",
+   "gurl": "https://maps.google.com/?cid=2404002526410893332&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
+  },
+  {
+   "id": "yr-ramen-afro-beats-shinjuk",
+   "n": "Ramen Afro Beats Shinjuku",
+   "en": "Ramen Afro Beats Shinjuku",
+   "city": "טוקיו",
+   "icon": "🍜",
+   "d": "ראמן שכונתי טוב בשינג'וקו — הפסקת נודלס בין הניאונים.",
+   "resv": "walkin",
+   "note": "",
+   "ll": [
+    35.69001,
+    139.71109
+   ],
+   "type": "מסעדה שמגישה מרק ראמן",
+   "rating": 4.4,
+   "cnt": 749,
+   "price": "$$",
+   "hours": [
+    "יום ראשון: 11:00–14:30, 17:00–21:00",
+    "יום שני: 11:00–14:30, 17:00–21:00",
+    "יום שלישי: 11:00–14:30, 17:00–21:00",
+    "יום רביעי: 11:00–14:30, 17:00–21:00",
+    "יום חמישי: 11:00–14:30, 17:00–21:00",
+    "יום שישי: 11:00–14:30, 17:00–21:00",
+    "יום שבת: 11:00–14:30, 17:00–21:00"
+   ],
+   "ja": {
+    "n": "Ramen Afro Beats",
+    "a": "〒160-0022 東京都新宿区新宿１丁目１６−１０ 103"
+   },
+   "site": "https://www.instagram.com/ramenafrobeats/",
+   "gurl": "https://maps.google.com/?cid=4027255699734521758&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
+  },
+  {
+   "id": "yr-joto-curry",
+   "n": "Joto Curry",
+   "en": "Joto Curry",
+   "city": "טוקיו",
+   "icon": "🍛",
+   "d": "קארי בסגנון אוסקה — סמיך, עשיר ומהיר, דקות מצומת שיבויה.",
+   "resv": "walkin",
+   "note": "",
+   "ll": [
+    35.65713,
+    139.7038
+   ],
+   "type": "מסעדה יפנית המתמחה במאכלי קארי",
+   "rating": 4.5,
+   "cnt": 1777,
+   "price": "$$",
+   "hours": [
+    "יום ראשון: 11:00–21:00",
+    "יום שני: 11:00–22:00",
+    "יום שלישי: 11:00–22:00",
+    "יום רביעי: 11:00–22:00",
+    "יום חמישי: 11:00–22:00",
+    "יום שישי: 11:00–22:00",
+    "יום שבת: 11:00–21:00"
+   ],
+   "ja": {
+    "n": "上等カレー 渋谷本店",
+    "a": "〒150-0002 東京都渋谷区渋谷３丁目１８−７ 東一号館ビル １Ｆ"
+   },
+   "site": "https://www.tokumasa.net/jyoutoucurry_tokyo01",
+   "gurl": "https://maps.google.com/?cid=9913021403327720417&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
+  },
+  {
+   "id": "yr-ninjomenya-gyukotsuo",
+   "n": "Ninjomenya Gyukotsuo",
+   "en": "Ninjomenya Gyukotsuo",
+   "city": "אוסקה",
+   "icon": "🍜",
+   "d": "ראמן על ציר עצמות בקר — Beef ramen לפי ירון. מזמינים במכונת כרטיסים בכניסה.",
+   "resv": "walkin",
+   "note": "Beef ramen",
+   "ll": [
+    34.67669,
+    135.5079
+   ],
+   "type": "מסעדה שמגישה מרק ראמן",
+   "rating": 4.7,
+   "cnt": 1517,
+   "price": "$",
+   "hours": [
+    "יום ראשון: 11:30–23:30",
+    "יום שני: 11:30–23:30",
+    "יום שלישי: 11:30–23:30",
+    "יום רביעי: 11:30–23:30",
+    "יום חמישי: 11:30–23:30",
+    "יום שישי: 11:30–23:30",
+    "יום שבת: 11:30–23:30"
+   ],
+   "ja": {
+    "n": "人情麺家 牛骨王",
+    "a": "〒542-0081 大阪府大阪市中央区南船場１丁目１２−２７"
+   },
+   "site": "",
+   "gurl": "https://maps.google.com/?cid=2661088366737131394&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
+  },
+  {
+   "id": "yr-rara-coffee",
+   "n": "Rara Coffee (珈琲舎 羅羅)",
+   "en": "Coffee Sha Rara Osaka",
+   "city": "אוסקה",
+   "icon": "☕",
+   "d": "בית קפה פילטר קטן ומקסים אם אתם באזור — בלי פוזות, לפי ירון. פותח כבר ב-7:00; סגור בימי ראשון.",
+   "resv": "walkin",
+   "note": "Small and nice drip coffee place if you’re around. Nothing fency",
+   "ll": [
+    34.67606,
+    135.50518
+   ],
+   "type": "בית קפה",
+   "rating": 4.4,
+   "cnt": 119,
+   "price": "$",
+   "hours": [
+    "יום ראשון: סגור",
+    "יום שני: 7:00–17:00",
+    "יום שלישי: 7:00–17:00",
+    "יום רביעי: 7:00–17:00",
+    "יום חמישי: 7:00–17:00",
+    "יום שישי: 7:00–17:00",
+    "יום שבת: 7:00–15:00"
+   ],
+   "ja": {
+    "n": "珈琲舎 羅羅",
+    "a": "〒542-0081 大阪府大阪市中央区南船場２丁目６−８ キャルメ"
+   },
+   "site": "",
+   "gurl": "https://maps.google.com/?cid=8491801908840558875&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
+  },
+  {
+   "id": "yr-chururu",
+   "n": "Chururu",
+   "en": "Chururu",
+   "city": "קיוטו",
+   "icon": "🍝",
+   "d": "אודון קרבונרה — השילוב המפתיע שירון ממליץ עליו. פתוח רק בצהריים.",
+   "resv": "walkin",
+   "note": "Carbonara udon",
+   "ll": [
+    34.99887,
+    135.76639
+   ],
+   "type": "מסעדה יפנית",
+   "rating": 4.3,
+   "cnt": 155,
+   "price": "$$",
+   "hours": [
+    "יום ראשון: 10:00–15:00",
+    "יום שני: 10:00–15:00",
+    "יום שלישי: סגור",
+    "יום רביעי: 10:00–15:00",
+    "יום חמישי: סגור",
+    "יום שישי: 10:00–15:00",
+    "יום שבת: 10:00–15:00"
+   ],
+   "ja": {
+    "n": "汁流ちゅるる",
+    "a": "〒600-8047 京都府京都市下京区石不動之町６９５ 枡儀ラクーオビル 2階"
+   },
+   "site": "https://www.instagram.com/chururu.kyoto/",
+   "gurl": "https://maps.google.com/?cid=13618871263417485158&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
+  },
+  {
+   "id": "yr-uogashi-nihon-ichi-shibu",
+   "n": "Uogashi Nihon-Ichi Shibuya Dogenzaka",
+   "en": "Uogashi Nihon-Ichi Shibuya Dogenzaka",
+   "city": "טוקיו",
+   "icon": "🍣",
+   "d": "סושי של רשת שוק הדגים בדוגנזאקה — טרי ובמחיר הוגן, בלב שיבויה.",
+   "resv": "both",
+   "note": "",
+   "ll": [
+    35.65894,
+    139.69819
+   ],
+   "type": "מסעדה",
+   "rating": 4.5,
+   "cnt": 1122,
+   "price": "$$",
+   "hours": [
+    "יום ראשון: 11:00–21:30",
+    "יום שני: 11:00–23:00",
+    "יום שלישי: 11:00–23:00",
+    "יום רביעי: 11:00–23:00",
+    "יום חמישי: 11:00–23:00",
+    "יום שישי: 11:00–23:00",
+    "יום שבת: 11:00–22:00"
+   ],
+   "ja": {
+    "n": "寿司 魚がし日本一 渋谷道玄坂店 (SUSHI UOGASHI-NIHON-ICHI)",
+    "a": "〒150-0043 東京都渋谷区道玄坂２丁目９−１"
+   },
+   "site": "https://uogashi-nihonichi.imachika.com/store/17",
+   "gurl": "https://maps.google.com/?cid=5796466028926882103&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
+  },
+  {
+   "id": "yr-tachi-sushi-yokocho-shin",
+   "n": "Tachi Sushi Yokocho Shinjuku West Gate",
+   "en": "Tachi Sushi Yokocho Shinjuku West Gate",
+   "city": "טוקיו",
+   "icon": "🍣",
+   "d": "סושי בעמידה ליד היציאה המערבית של שינג'וקו — מהיר, טרי וזול.",
+   "resv": "both",
+   "note": "",
+   "ll": [
+    35.68876,
+    139.69808
+   ],
+   "type": "מסעדת סושי",
+   "rating": 4.3,
+   "cnt": 1370,
+   "price": "$$",
+   "hours": [
+    "יום ראשון: 11:30–22:30",
+    "יום שני: 11:30–22:30",
+    "יום שלישי: 11:30–22:30",
+    "יום רביעי: 11:30–22:30",
+    "יום חמישי: 11:30–22:30",
+    "יום שישי: 11:30–22:30",
+    "יום שבת: 11:30–22:30"
+   ],
+   "ja": {
+    "n": "立ち寿司横丁 新宿西口店",
+    "a": "〒160-0023 東京都新宿区西新宿１丁目１８−１３ 近江ビル 1階"
+   },
+   "site": "https://shop.ap-holdings.jp/detail/1020/",
+   "gurl": "https://maps.google.com/?cid=11621491267237580404&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
+  }
+ ]
+};
