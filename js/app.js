@@ -726,7 +726,7 @@ function yrPopup(it) {
   bAdd.onclick = () => {
     map.closePopup();
     pickCatalog({
-      kind: "cat", n: it.n, en: it.en || it.n, city: it.city, cat: "food",
+      kind: "cat", n: it.n, en: it.en || it.n, city: it.city, cat: it.cat || "food",
       note: "⭐ המלצה של ירון" + (it.rating ? " · ★ " + it.rating.toFixed(1) + " בגוגל" : ""),
       book: it.resv === "book" ? "להזמין מראש" : false, klook: "",
       src: { ll: it.ll, addr: it.ja && it.ja.a || "", jaName: it.ja && it.ja.n || "" },

@@ -1723,6 +1723,172 @@ const FRIENDRECS = {
    },
    "site": "https://shop.ap-holdings.jp/detail/1020/",
    "gurl": "https://maps.google.com/?cid=11621491267237580404&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
-  }
+  },
+{
+ "id": "yr-nanbantei",
+ "n": "Nanbantei — יקיטורי",
+ "en": "Nanbantei Yakitori Osaka",
+ "city": "אוסקה",
+ "icon": "🍢",
+ "d": "יקיטורייה שכונתית אמיתית ליד נמבה — שיפודים על גחלים ברמה אחרת. פתוח מ-17:00, נסגר כשנגמר.",
+ "resv": "both",
+ "note": "איזקאיה מקומית הכי טובה שתהיה ביפן — מאוד מקומי, נראה קצת מלוכלך אבל איכות שיפודים לא מהעולם הזה",
+ "ll": [
+  34.65937,
+  135.50428
+ ],
+ "type": "מסעדה שמגישה יאקיטורי",
+ "rating": 4.5,
+ "cnt": 466,
+ "price": "$",
+ "hours": [
+  "יום ראשון: 17:00–23:00",
+  "יום שני: סגור",
+  "יום שלישי: סגור",
+  "יום רביעי: 17:00–23:00",
+  "יום חמישי: 17:00–23:00",
+  "יום שישי: 17:00–23:00",
+  "יום שבת: 17:00–23:00"
+ ],
+ "ja": {
+  "n": "日本橋 南蛮亭",
+  "a": "〒556-0004 大阪府大阪市浪速区日本橋西１丁目５−５ ミズホビル １F"
+ },
+ "site": "",
+ "gurl": "https://maps.google.com/?cid=8330033626325187382&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
+},
+{
+ "id": "yr-sakimoto-coffee",
+ "n": "SAKImoto COFFEE",
+ "en": "Sakimoto Coffee Roastery Osaka",
+ "city": "אוסקה",
+ "icon": "☕",
+ "d": "בית הקלייה של SAKImoto — קפה משובח, וממול המאפייה המפורסמת שלהם עם לחם השוקופאן והממרחים.",
+ "resv": "walkin",
+ "note": "קפה טוב, מולו יש מאפייה טובה",
+ "ll": [
+  34.66285,
+  135.50366
+ ],
+ "type": "בית קפה",
+ "rating": 4.3,
+ "cnt": 595,
+ "price": "$",
+ "hours": [
+  "יום ראשון: 8:30–18:00",
+  "יום שני: 9:00–18:00",
+  "יום שלישי: 9:00–18:00",
+  "יום רביעי: 9:00–18:00",
+  "יום חמישי: 9:00–18:00",
+  "יום שישי: 9:00–18:00",
+  "יום שבת: 8:30–18:00"
+ ],
+ "ja": {
+  "n": "嵜本珈琲 焙煎所",
+  "a": "〒556-0011 大阪府大阪市浪速区難波中２丁目２−６"
+ },
+ "site": "https://shokupan-sakimoto.com/sakimoto-coffee/",
+ "gurl": "https://maps.google.com/?cid=11552742770380977223&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
+},
+{
+ "id": "yr-pizzeria-da-tigre",
+ "n": "Pizzeria da Tigre",
+ "en": "Pizzeria da Tigre Osaka",
+ "city": "אוסקה",
+ "icon": "🍕",
+ "d": "פיצה נפוליטנית בשינמאצ'י — הפיצאיולו מנהל את כל המקום לבד מול העיניים שלכם.",
+ "resv": "walkin",
+ "note": "פיצה מעולה מעולה מעולה — מקום מגניב, שווה ללכת בשביל לראות אותו עובד לבד",
+ "ll": [
+  34.67728,
+  135.4943
+ ],
+ "type": "פיצרייה",
+ "rating": 4.4,
+ "cnt": 610,
+ "price": "$$",
+ "hours": [
+  "יום ראשון: 11:30–14:30, 17:00–21:00",
+  "יום שני: סגור",
+  "יום שלישי: סגור",
+  "יום רביעי: 11:30–14:30, 17:00–21:00",
+  "יום חמישי: 11:30–14:30, 17:00–21:00",
+  "יום שישי: 11:30–14:30, 17:00–21:00",
+  "יום שבת: 11:30–14:30, 17:00–21:00"
+ ],
+ "ja": {
+  "n": "ピッツェリア ダ ティグレ",
+  "a": "〒550-0013 大阪府大阪市西区新町１丁目１８−１３"
+ },
+ "site": "https://www.instagram.com/pizzeriadatigre",
+ "gurl": "https://maps.google.com/?cid=14403378469546268161&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
+},
+{
+ "id": "yr-tower-knives",
+ "n": "Tower Knives Osaka",
+ "en": "Tower Knives Osaka",
+ "city": "אוסקה",
+ "icon": "🔪",
+ "d": "חנות הסכינים המפורסמת של שינסקאי — צוות דובר אנגלית שמתאים סכין אישית, חריטת שם ופטור ממס עם דרכון.",
+ "resv": "walkin",
+ "note": "פה קניתי לך סכין ואתה תקנה לי גם",
+ "ll": [
+  34.65231,
+  135.50692
+ ],
+ "type": "חנות",
+ "rating": 4.8,
+ "cnt": 795,
+ "price": "",
+ "hours": [
+  "יום ראשון: 10:00–18:00",
+  "יום שני: 10:00–18:00",
+  "יום שלישי: 10:00–18:00",
+  "יום רביעי: 10:00–18:00",
+  "יום חמישי: 10:00–18:00",
+  "יום שישי: 10:00–18:00",
+  "יום שבת: 10:00–18:00"
+ ],
+ "ja": {
+  "n": "TOWER KNIVES OSAKA - タワーナイブズ大阪 － 新世界の包丁専門店(刃物工房)",
+  "a": "〒556-0002 大阪府大阪市浪速区恵美須東１丁目４−７"
+ },
+ "site": "https://towerknives.com/",
+ "gurl": "https://maps.google.com/?cid=1160808223375792125&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA",
+ "cat": "shop"
+},
+{
+ "id": "yr-next-shikaku",
+ "n": "next shikaku — ראמן",
+ "en": "Next Shikaku Ramen Osaka",
+ "city": "אוסקה",
+ "icon": "🍜",
+ "d": "ראמן על בסיס אוייסטרים בסניצ'ימאה — מרק עשיר ועדין. מזמינים במכונת הכרטיסים בכניסה.",
+ "resv": "walkin",
+ "note": "ראמן אוייסטרים (לא מורגש באמת טעם של אוייסטרים, לא לדאוג) — הכי טעים שיש",
+ "ll": [
+  34.66425,
+  135.5035
+ ],
+ "type": "מסעדה שמגישה מרק ראמן",
+ "rating": 4.6,
+ "cnt": 1968,
+ "price": "$$",
+ "hours": [
+  "יום ראשון: 10:00–22:30",
+  "יום שני: 10:30–22:30",
+  "יום שלישי: 10:30–22:30",
+  "יום רביעי: 10:30–22:30",
+  "יום חמישי: 10:30–22:30",
+  "יום שישי: 10:30–22:30",
+  "יום שבת: 10:00–22:30"
+ ],
+ "ja": {
+  "n": "next□（ネクストシカク）",
+  "a": "〒542-0075 大阪府大阪市中央区難波千日前９−１２"
+ },
+ "site": "https://www.instagram.com/next.shikaku0801/",
+ "gurl": "https://maps.google.com/?cid=7185207767825424104&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA"
+}
  ]
 };
